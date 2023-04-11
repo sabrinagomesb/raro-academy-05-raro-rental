@@ -1,0 +1,27 @@
+<%= form_with(model: aluguel) do |form| %>
+  <% if aluguel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
+
+      <ul>
+        <% aluguel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :cliente_id, style: "display: block" %>
+    <%= form.text_field :cliente_id %>
+  </div>
+
+  <div>
+    <%= form.label :veiculo_id, style: "display: block" %>
+    <%= form.text_field :veiculo_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
