@@ -1,32 +1,35 @@
 <%= form_with(model: cliente) do |form| %>
-  <% if cliente.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+  <div class="border-b border-gray-900/10 pb-12">
+    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-      <ul>
-        <% cliente.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <%# nome %>
+      <div class="sm:col-span-3">
+        <%= form.label :nome, class: label_classes %>
+        <div class="mt-2">
+          <%= form.text_field :nome, class: input_classes %>
+        </div>
+      </div>
+      
+      <%# cpf %>
+      <div class="sm:col-span-3">
+        <%= form.label 'CPF', class: label_classes %>
+        <div class="mt-2">
+          <%= form.text_field :cpf, class: input_classes %>
+        </div>
+      </div>
+
+      <%# cnh %>
+      <div class="sm:col-span-3">
+        <%= form.label 'CNH', class: label_classes %>
+        <div class="mt-2">
+          <%= form.text_field :cnh, class: input_classes %>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div>
-    <%= form.label :cnh, style: "display: block" %>
-    <%= form.text_field :cnh %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <%= link_to "Cancelar", clientes_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+      <%= form.submit 'Salvar', class: botoes_azuis %>
+    </div>
   </div>
 <% end %>

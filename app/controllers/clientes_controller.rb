@@ -1,10 +1,13 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
 
+  # CRUD -> create, read, update, delete
   # GET /clientes or /clientes.json
   def index
     @clientes = Cliente.all
   end
+
+  
 
   # GET /clientes/1 or /clientes/1.json
   def show
@@ -38,8 +41,8 @@ class ClientesController < ApplicationController
   def update
     respond_to do |format|
       if @cliente.update(cliente_params)
-        format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully updated." }
-        format.json { render :show, status: :ok, location: @cliente }
+        format.html { redirect_to clientes_url, notice: "Cliente was successfully updated." }
+        format.json { render :index, status: :ok, location: @cliente }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }

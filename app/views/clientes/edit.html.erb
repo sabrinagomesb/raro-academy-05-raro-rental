@@ -1,10 +1,7 @@
-<h1>Editing cliente</h1>
+<% content_for :titulo do %>
+  <span>
+    Editar #<b><%= @cliente.id %></b>
+  </span>
+<% end %>
 
 <%= render "form", cliente: @cliente %>
-
-<br>
-
-<div>
-  <%= link_to "Show this cliente", @cliente %> |
-  <%= link_to "Back to clientes", clientes_path %>
-</div>

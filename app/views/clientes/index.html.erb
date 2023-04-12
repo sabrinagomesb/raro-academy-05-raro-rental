@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Clientes</h1>
+<% content_for :titulo do %>
+  <span>
+    Clientes
+  </span>
+<% end %>
+<%= render 'cabecalho' %>
 
 <div id="clientes">
   <% @clientes.each do |cliente| %>

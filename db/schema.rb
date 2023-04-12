@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_215205) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_231955) do
   create_table "aluguels", force: :cascade do |t|
     t.integer "cliente_id", null: false
     t.integer "veiculo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "data_inicio"
+    t.date "data_fim"
     t.index ["cliente_id"], name: "index_aluguels_on_cliente_id"
     t.index ["veiculo_id"], name: "index_aluguels_on_veiculo_id"
   end
@@ -26,6 +28,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_215205) do
     t.string "cnh"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "unidades", force: :cascade do |t|
+    t.string "endereco"
+    t.string "cnpj"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "numero", default: "100", null: false
   end
 
   create_table "veiculos", force: :cascade do |t|
