@@ -1,24 +1,14 @@
-# README
+# admin-locadora-veiculos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto prático para aulas dos fundamentos de uma aplicação ruby on rails.
 
-Things you may want to cover:
+## setup
+Antes de iniciar a aplicação, recomenda-se a execução da seguinte sequência de comandos:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+```
+Para iniciar o servidor, recomenda-se a utilização do comando `./bin/dev`, pois ele garante os assets serão todos devidamente procesasdos.
