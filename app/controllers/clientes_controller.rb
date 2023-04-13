@@ -1,5 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
+  before_action :authenticate_usuario!
 
   # CRUD -> create, read, update, delete
   # GET /clientes or /clientes.json

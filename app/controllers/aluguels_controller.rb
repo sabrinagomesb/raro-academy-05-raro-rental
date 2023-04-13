@@ -1,5 +1,6 @@
 class AluguelsController < ApplicationController
   before_action :set_aluguel, only: %i[ show edit update destroy ]
+  before_action :authenticate_usuario!
 
   # GET /aluguels or /aluguels.json
   def index
