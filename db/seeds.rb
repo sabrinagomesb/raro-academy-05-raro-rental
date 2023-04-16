@@ -1,24 +1,34 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
-# usuario root
-Usuario.create! email: 'root@rarolabs.com.br', password: 'root@2023', nome: 'Alan Turing', foto: 'data:image/jpeg;base64,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'
+# Usuários root
+Usuario.create! email: "sabrinagbdev@gmail.com", password: "sabrina@123", nome: "Sabrina Gomes", foto: "https://avatars.githubusercontent.com/
+u/117469503?v=4"
+
+Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", foto: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png"
+
+# Clientes
+Cliente.create! nome: "João Francisco", cpf: "123456789-00", cnh: "11122233300"
+Cliente.create! nome: "Maria Clara Fernanda", cpf: "147258369-00", cnh: "41452563600"
+Cliente.create! nome: "Babi Gomes", cpf: "369369369-00", cnh: "747858969-00"
+Cliente.create! nome: "Joana Carla Silveira", cpf: "321654987-00", cnh: "88899988811"
+Cliente.create! nome: "Samantha Jones", cpf: "123456789-00", cnh: "11122233300"
+Cliente.create! nome: "Marcos Pedro Santana", cpf: "147258369-00", cnh: "41452563600"
+Cliente.create! nome: "Pedro Pinheiro", cpf: "369369369-00", cnh: "747858969-00"
+Cliente.create! nome: "Sara Oliveira Garcia Marques", cpf: "321654987-00", cnh: "88899988811"
+
+# Veiculos
+Veiculo.create! marca: "Ford", modelo: "Ka", placa: "KAR1234", chassi: "12345678901234567890", cor: "Vermelho"
+Veiculo.create! marca: "Fiat", modelo: "Uno", placa: "CAR4321", chassi: "12345678901234567890", cor: "Prata"
+Veiculo.create! marca: "Fiat", modelo: "Mobi", placa: "MOB0101", chassi: "11122233344455566677", cor: "Branco"
+Veiculo.create! marca: "Fiat", modelo: "Siena", placa: "BBB1458", chassi: "11124567890566677", cor: "Prata"
+Veiculo.create! marca: "Fiat", modelo: "Argo", placa: "ABC9999", chassi: "11122233344455566677", cor: "Branco"
+Veiculo.create! marca: "Hyundai", modelo: "HB20", placa: "RAR0000", chassi: "12345678901234567890", cor: "Vermelho"
+
+# Aluguel
+Aluguel.create! cliente_id: 1, veiculo_id: 2, data_inicio: Date.today, data_fim: Date.today + 4.days
+Aluguel.create! cliente_id: 2, veiculo_id: 3, data_inicio: Date.today, data_fim: Date.today + 5.days
+Aluguel.create! cliente_id: 3, veiculo_id: 4, data_inicio: Date.today, data_fim: Date.today + 3.days
+Aluguel.create! cliente_id: 4, veiculo_id: 5, data_inicio: Date.today, data_fim: Date.today + 7.days
+Aluguel.create! cliente_id: 5, veiculo_id: 6, data_inicio: Date.today, data_fim: Date.today + 7.days
+Aluguel.create! cliente_id: 6, veiculo_id: 1, data_inicio: Date.today, data_fim: Date.today + 2.days
