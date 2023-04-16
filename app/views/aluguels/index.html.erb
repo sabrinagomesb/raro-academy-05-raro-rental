@@ -1,6 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Aluguels</h1>
+<% content_for :titulo do %>
+  <span>
+    Alugueis
+  </span>
+<% end %>
 
 <div id="aluguels">
   <% @aluguels.each do |aluguel| %>

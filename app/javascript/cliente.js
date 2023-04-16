@@ -1,1 +1,0 @@
-console.log('deve ser executado somente em cliente.')
