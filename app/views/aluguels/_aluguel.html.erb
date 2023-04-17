@@ -9,4 +9,21 @@
     <%= aluguel.veiculo %>
   </p>
 
+  <p>
+    <strong>Data Inicio:</strong>
+    <%= aluguel.data_inicio.to_formatted_s(:short) %>
+  </p>
+
+  <p>
+    <strong>Data Fim:</strong>
+    <%= aluguel.data_fim.to_formatted_s(:short) %>
+  </p>
+
+  <p>
+    <strong>Valor Pago:</strong>
+    <%= number_to_currency(aluguel.valor_pago, :unit => "R$ ", :separator => ",", :delimiter => ".") %>
+  </p>
+
+  <%# number_to_currency(client.payment, :unit => "$")  %>
+
 </div>
