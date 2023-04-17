@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_235717) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_17_191101) do
   create_table "aluguels", force: :cascade do |t|
     t.integer "cliente_id", null: false
     t.integer "veiculo_id", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_235717) do
     t.datetime "updated_at", null: false
     t.date "data_inicio"
     t.date "data_fim"
+    t.float "valor_pago"
     t.index ["cliente_id"], name: "index_aluguels_on_cliente_id"
     t.index ["veiculo_id"], name: "index_aluguels_on_veiculo_id"
   end
