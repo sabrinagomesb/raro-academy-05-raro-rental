@@ -8,22 +8,22 @@ u/117469503?v=4"
 Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", foto: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png"
 
 # Clientes
-Cliente.create! nome: "João Francisco", cpf: "123456789-00", cnh: "11122233300"
-Cliente.create! nome: "Maria Clara Fernanda", cpf: "147258369-00", cnh: "41452563600"
-Cliente.create! nome: "Babi Gomes", cpf: "369369369-00", cnh: "747858969-00"
-Cliente.create! nome: "Joana Carla Silveira", cpf: "321654987-00", cnh: "88899988811"
-Cliente.create! nome: "Samantha Jones", cpf: "123456789-00", cnh: "11122233300"
-Cliente.create! nome: "Marcos Pedro Santana", cpf: "147258369-00", cnh: "41452563600"
-Cliente.create! nome: "Pedro Pinheiro", cpf: "369369369-00", cnh: "747858969-00"
-Cliente.create! nome: "Sara Oliveira Garcia Marques", cpf: "321654987-00", cnh: "88899988811"
+Cliente.create! nome: "João Francisco", cpf: "12345678900", cnh: "11122233300"
+Cliente.create! nome: "Maria Clara Fernanda", cpf: "14725836900", cnh: "41452563600"
+Cliente.create! nome: "Babi Gomes", cpf: "36936936900", cnh: "74785896900"
+Cliente.create! nome: "Joana Carla Silveira", cpf: "32165498700", cnh: "88899988811"
+Cliente.create! nome: "Samantha Jones", cpf: "12345678900", cnh: "11122233300"
+Cliente.create! nome: "Marcos Pedro Santana", cpf: "14725836900", cnh: "41452563600"
+Cliente.create! nome: "Pedro Pinheiro", cpf: "36936936900", cnh: "74785896900"
+Cliente.create! nome: "Sara Oliveira Garcia Marques", cpf: "32165498700", cnh: "88899988811"
 
 # Veiculos
-Veiculo.create! marca: "Ford", modelo: "Ka", placa: "KAR1234", chassi: "12345678901234567890", cor: "Vermelho"
-Veiculo.create! marca: "Fiat", modelo: "Uno", placa: "CAR4321", chassi: "12345678901234567890", cor: "Prata"
-Veiculo.create! marca: "Fiat", modelo: "Mobi", placa: "MOB0101", chassi: "11122233344455566677", cor: "Branco"
-Veiculo.create! marca: "Fiat", modelo: "Siena", placa: "BBB1458", chassi: "11124567890566677", cor: "Prata"
-Veiculo.create! marca: "Fiat", modelo: "Argo", placa: "ABC9999", chassi: "11122233344455566677", cor: "Branco"
-Veiculo.create! marca: "Hyundai", modelo: "HB20", placa: "RAR0000", chassi: "12345678901234567890", cor: "Vermelho"
+Veiculo.create! marca: "Ford", modelo: "Ka", placa: "KAR1234", chassi: "12345678901234560", cor: "Vermelho"
+Veiculo.create! marca: "Fiat", modelo: "Uno", placa: "CAR4321", chassi: "14445678901234567", cor: "Prata"
+Veiculo.create! marca: "Fiat", modelo: "Mobi", placa: "MOB0101", chassi: "33345678901234567", cor: "Branco"
+Veiculo.create! marca: "Fiat", modelo: "Siena", placa: "BBB1458", chassi: "22345678901234567", cor: "Prata"
+Veiculo.create! marca: "Fiat", modelo: "Argo", placa: "ABC9999", chassi: "55345678901234567", cor: "Branco"
+Veiculo.create! marca: "Hyundai", modelo: "HB20", placa: "RAR0000", chassi: "99345678901234567", cor: "Vermelho"
 
 # Aluguel
 Aluguel.create! cliente_id: 1, veiculo_id: 2, data_inicio: Date.today, data_fim: Date.today + 4.days
