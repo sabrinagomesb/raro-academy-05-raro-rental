@@ -15,6 +15,9 @@ class AluguelsTest < ApplicationSystemTestCase
     click_on "New aluguel"
 
     fill_in "Cliente", with: @aluguel.cliente_id
+    fill_in "Data fim", with: @aluguel.data_fim
+    fill_in "Data inicio", with: @aluguel.data_inicio
+    fill_in "Valor pago", with: @aluguel.valor_pago
     fill_in "Veiculo", with: @aluguel.veiculo_id
     click_on "Create Aluguel"
 
@@ -27,6 +30,9 @@ class AluguelsTest < ApplicationSystemTestCase
     click_on "Edit this aluguel", match: :first
 
     fill_in "Cliente", with: @aluguel.cliente_id
+    fill_in "Data fim", with: @aluguel.data_fim
+    fill_in "Data inicio", with: @aluguel.data_inicio
+    fill_in "Valor pago", with: @aluguel.valor_pago
     fill_in "Veiculo", with: @aluguel.veiculo_id
     click_on "Update Aluguel"
 
