@@ -1,11 +1,11 @@
 module TailwindHelpers
   # Buttons classes
   def btn_primary
-    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
   end
 
   def btn_secondary
-    "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+    "bg-transparent hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-2 px-4 border border-indigo-500 hover:border-transparent rounded"
   end
 
   def btn_danger
@@ -13,7 +13,7 @@ module TailwindHelpers
   end
 
   def btn_simple
-    "text-blue-500 hover:text-blue-700 font-bold p-2"
+    "text-indigo-500 hover:text-indigo-700 font-bold p-2"
   end
 
   # Forms classes
