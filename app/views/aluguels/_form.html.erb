@@ -1,56 +1,63 @@
-<%= form_with(model: aluguel) do |form| %>
-  <% if aluguel.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
+<div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-xl p-4 mt-4">
+  <%= form_with(model: @aluguel) do |form| %>
+    <div class=" pb-8">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-      <ul>
-        <% aluguel.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <%# cliente %>
+        <div class="sm:col-span-3">
+          <%= form.label 'Cliente', class: input_label %>
+          <div class="mt-2">
+            <%= form.collection_select :cliente_id, Cliente.all, :id, :nome, {prompt: 'selecionar um cliente'}, {class: select_classes} %>
+          </div>
+        </div>
 
-  <div class="border-b border-gray-900/10 pb-12">
-    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-      <div class="sm:col-span-3">
-        <%= form.label 'Cliente', class: input_label %>
-        <div class="mt-2">
-          <%= form.collection_select :cliente_id, Cliente.all, :id, :nome, {prompt: 'selecionar um cliente'}, {class: select_classes} %>
+        <%# veiculo %>
+        <div class="sm:col-span-3">
+          <%= form.label 'Veiculo', class: input_label %>
+          <div class="mt-2">
+            <%= form.collection_select :veiculo_id, Veiculo.all, :id, :to_s, {prompt: 'selecionar um veículo'}, {class: select_classes} %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <%= form.label :data_inicio, class: input_label  %>
+          <div class="mt-2">
+            <%= form.date_field :data_inicio, class: input_text %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <%= form.label :data_fim, class: input_label  %>
+          <div class="mt-2">
+            <%= form.date_field :data_fim, class: input_text %>
+          </div>
+        </div>
+
+        <%# profile url %>
+        <div class="sm:col-span-3">
+          <%= form.label :valor_pago, class: input_label  %>
+          <div class="mt-2">
+            <%= form.text_field :valor_pago, class: input_text, placeholder: "Apenas números. Ex.: 1350.75" %>
+          </div>
         </div>
       </div>
 
-      <div class="sm:col-span-3">
-        <%= form.label 'Veiculo', class: input_label %>
-        <div class="mt-2">
-          <%= form.collection_select :veiculo_id, Veiculo.all, :id, :to_s, {prompt: 'selecionar um veículo'}, {class: select_classes} %>
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <%= link_to "Cancelar", aluguels_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+        <%= form.submit 'Salvar', class: btn_primary %>
+      </div>
+
+      <% if aluguel.errors.any? %>
+        <div class="flex flex-col justify-between items-center text-red-500 px-4 py-2 rounded-lg mb-4">
+          <strong><%= pluralize(aluguel.errors.count, "error") %> </strong>
+
+          <ul>
+            <% aluguel.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <div class="sm:col-span-3">
-      <%= form.label :data_inicio, class: label_classes  %>
-      <div class="mt-2">
-        <%= form.date_field :data_inicio, class: input_classes %>
-      </div>
-    </div>
-
-    <div class="sm:col-span-3">
-      <%= form.label :data_fim, class: label_classes  %>
-      <div class="mt-2">
-        <%= form.date_field :data_fim, class: input_classes %>
-      </div>
-    </div>
-
-    <div class="sm:col-span-3">
-      <%= form.label :valor_pago, class: label_classes  %>
-      <div class="mt-2">
-        <%= form.text_field :valor_pago, class: input_classes, placeholder: "Apenas números. Ex.: 1350.75" %>
-      </div>
-    </div>
-
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-      <%= link_to "Cancelar", aluguels_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
-      <%= form.submit 'Salvar', class: btn_primary %>
+      <% end %>
     </div>
   <% end %>
+</div>
