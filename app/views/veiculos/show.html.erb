@@ -1,10 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :titulo do %>
+  <span>
+    Veículo
+  </span>
+<% end %>
 
-<%= render @veiculo %>
+<% content_for :new_button do %>
+  <%= link_to "Novo veículo", new_veiculo_path, class: btn_primary %>
+<% end %>
 
-<div>
-  <%= link_to "Edit this veiculo", edit_veiculo_path(@veiculo) %> |
-  <%= link_to "Back to veiculos", veiculos_path %>
+<div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-xl p-6 mt-4">
 
-  <%= button_to "Destroy this veiculo", @veiculo, method: :delete %>
+  <%= render @veiculo %>
+
+  <div class="flex justify-evenly gap-4 mt-4">
+    <%= link_to "Editar", edit_veiculo_path(@veiculo), class: btn_primary %>
+    <%= button_to "Deletar", @veiculo, method: :delete, class: btn_danger %>
+  </div>
+  <%= link_to "Voltar para veículos", veiculos_path, class: btn_simple %>
 </div>
