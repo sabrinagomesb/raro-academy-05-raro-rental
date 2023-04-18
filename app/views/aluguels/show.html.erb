@@ -1,10 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :titulo do %>
+  <span>
+    Aluguel
+  </span>
+<% end %>
 
-<%= render @aluguel %>
+<% content_for :new_button do %>
+  <%= link_to "Novo aluguel", new_cliente_path, class: btn_primary %>
+<% end %>
 
-<div>
-  <%= link_to "Edit this aluguel", edit_aluguel_path(@aluguel) %> |
-  <%= link_to "Back to aluguels", aluguels_path %>
+<div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-xl p-6">
 
-  <%= button_to "Destroy this aluguel", @aluguel, method: :delete %>
+  <%= render @aluguel %>
+
+  <div class="flex justify-evenly gap-4 mt-4">
+    <%= link_to "Editar", edit_aluguel_path(@aluguel), class: btn_primary %>
+    <%= button_to "Deletar", @aluguel, method: :delete, class: btn_danger %>
+  </div>
+  <%= link_to "Voltar para alugueis", aluguels_path, class: btn_simple %>
 </div>

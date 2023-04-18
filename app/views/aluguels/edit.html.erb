@@ -1,10 +1,7 @@
-<h1>Editing aluguel</h1>
+<% content_for :titulo do %>
+  <span>
+    Editar - <b><%= @aluguel.veiculo %></b>
+  </span>
+<% end %>
 
 <%= render "form", aluguel: @aluguel %>
-
-<br>
-
-<div>
-  <%= link_to "Show this aluguel", @aluguel %> |
-  <%= link_to "Back to aluguels", aluguels_path %>
-</div>
