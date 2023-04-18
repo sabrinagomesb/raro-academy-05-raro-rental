@@ -50,22 +50,24 @@ class VeiculosController < ApplicationController
 
   # DELETE /veiculos/1 or /veiculos/1.json
   def destroy
-    @veiculo.destroy
-
-    respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: "Veiculo was successfully destroyed." }
-      format.json { head :no_content }
+    begin
+      @veiculo.destroy
+      flash[:notice] = "Veiculo removed successfully"
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:alert] = "Veiculo can't be removed because it has rentals!"
     end
+    redirect_to veiculos_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_veiculo
-      @veiculo = Veiculo.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def veiculo_params
-      params.require(:veiculo).permit(:marca, :modelo, :placa, :chassi, :cor)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_veiculo
+    @veiculo = Veiculo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def veiculo_params
+    params.require(:veiculo).permit(:marca, :modelo, :placa, :chassi, :cor)
+  end
 end
