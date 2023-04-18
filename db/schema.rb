@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_191101) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_035937) do
   create_table "aluguels", force: :cascade do |t|
     t.integer "cliente_id", null: false
     t.integer "veiculo_id", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_191101) do
     t.string "cnh"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_url"
   end
 
   create_table "unidades", force: :cascade do |t|

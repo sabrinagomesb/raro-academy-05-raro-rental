@@ -8,8 +8,6 @@ class ClientesController < ApplicationController
     @clientes = Cliente.all
   end
 
-  
-
   # GET /clientes/1 or /clientes/1.json
   def show
   end
@@ -53,22 +51,24 @@ class ClientesController < ApplicationController
 
   # DELETE /clientes/1 or /clientes/1.json
   def destroy
-    @cliente.destroy
-
-    respond_to do |format|
-      format.html { redirect_to clientes_url, notice: "Cliente was successfully destroyed." }
-      format.json { head :no_content }
+    begin
+      @cliente.destroy
+      flash[:notice] = "Client removed successfully!"
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:alert] = "Client can't be removed because it has rentals!"
     end
+    redirect_to clientes_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cliente
-      @cliente = Cliente.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cliente_params
-      params.require(:cliente).permit(:nome, :cpf, :cnh)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cliente
+    @cliente = Cliente.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cliente_params
+    params.require(:cliente).permit(:nome, :cpf, :cnh, :profile_url)
+  end
 end

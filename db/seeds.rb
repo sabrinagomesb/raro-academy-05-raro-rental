@@ -1,3 +1,4 @@
+require "faker"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
@@ -7,15 +8,12 @@ u/117469503?v=4"
 
 Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", foto: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png"
 
+# db/seeds.rb
+
 # Clientes
-Cliente.create! nome: "João Francisco", cpf: "12345678900", cnh: "11122233300"
-Cliente.create! nome: "Maria Clara Fernanda", cpf: "14725836900", cnh: "41452563600"
-Cliente.create! nome: "Babi Gomes", cpf: "36936936900", cnh: "74785896900"
-Cliente.create! nome: "Joana Carla Silveira", cpf: "32165498700", cnh: "88899988811"
-Cliente.create! nome: "Samantha Jones", cpf: "12345678900", cnh: "11122233300"
-Cliente.create! nome: "Marcos Pedro Santana", cpf: "14725836900", cnh: "41452563600"
-Cliente.create! nome: "Pedro Pinheiro", cpf: "36936936900", cnh: "74785896900"
-Cliente.create! nome: "Sara Oliveira Garcia Marques", cpf: "32165498700", cnh: "88899988811"
+10.times do
+  Cliente.create! nome: Faker::Name.name, cpf: Faker::Number.number(digits: 11).to_s, cnh: Faker::Number.number(digits: 11).to_s, profile_url: Faker::Avatar.image
+end
 
 # Veiculos
 Veiculo.create! marca: "Ford", modelo: "Ka", placa: "KAR1234", chassi: "12345678901234560", cor: "Vermelho"
@@ -30,5 +28,5 @@ Aluguel.create! cliente_id: 1, veiculo_id: 2, data_inicio: Date.today, data_fim:
 Aluguel.create! cliente_id: 2, veiculo_id: 3, data_inicio: Date.today, data_fim: Date.today + 5.days, valor_pago: 200
 Aluguel.create! cliente_id: 3, veiculo_id: 4, data_inicio: Date.today, data_fim: Date.today + 3.days, valor_pago: 300
 Aluguel.create! cliente_id: 4, veiculo_id: 5, data_inicio: Date.today, data_fim: Date.today + 7.days, valor_pago: 450
-Aluguel.create! cliente_id: 5, veiculo_id: 6, data_inicio: Date.today, data_fim: Date.today + 7.days, valor_pago: 3450
+Aluguel.create! cliente_id: 5, veiculo_id: 6, data_inicio: Date.today, data_fim: Date.today + 7.days, valor_pago: 750
 Aluguel.create! cliente_id: 6, veiculo_id: 1, data_inicio: Date.today, data_fim: Date.today + 2.days, valor_pago: 570
