@@ -1,9 +1,7 @@
-<h1>New veiculo</h1>
+<% content_for :titulo do %>
+  <span>
+    Novo veículo
+  </span>
+<% end %>
 
 <%= render "form", veiculo: @veiculo %>
-
-<br>
-
-<div>
-  <%= link_to "Back to veiculos", veiculos_path %>
-</div>
