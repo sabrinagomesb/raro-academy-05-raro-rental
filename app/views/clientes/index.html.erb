@@ -1,19 +1,42 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :titulo do %>
   <span>
     Clientes
   </span>
 <% end %>
 
-<div id="clientes">
-  <% @clientes.each do |cliente| %>
-    <%= render cliente %>
-    <p>
-      <%= link_to "Show this cliente", cliente %>
-    </p>
-  <% end %>
-</div>
+<% content_for :new_button do %>
+  <%= link_to "Novo cliente", new_cliente_path, class: btn_primary %>
+<% end %>
 
-<%= link_to "New cliente", new_cliente_path %>
-<%= javascript_include_tag "cliente", "data-turbo-track": "reload", defer: true %>
+<div id="clientes" class="w-full overflow-hidden rounded-lg shadow-lg mt-2">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr
+          class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100"
+        >
+          <th class="p-4 w-1/4 divide-x">Nome</th>
+          <th class="p-4 w-1/4 divide-x">CPF</th>
+          <th class="p-4 w-1/4 divide-x">CNH</th>
+          <th class="p-4 divide-x">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y">
+        <% @clientes.each do |cliente| %>
+          <tr class="text-gray-700">
+            <td class="px-8 py-3"><%= cliente.nome %></td>
+            <td class="py-3"><%= cliente.cpf %></td>
+            <td class="py-3"><%= cliente.cnh %></td>
+            <td class="py-3">
+              <div class="flex items-center space-x-2">
+                <%= link_to "Ver cliente", cliente, class: btn_simple %>
+                <%= link_to "Editar", edit_cliente_path(cliente.id), class: btn_secondary %>
+                <%= button_to "Deletar", cliente_path(cliente), method: :delete, data: { confirm: 'Tem certeza que deseja deletar esse cliente?' }, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

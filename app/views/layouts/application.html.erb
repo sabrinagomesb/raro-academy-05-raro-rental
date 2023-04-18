@@ -12,18 +12,30 @@
 
   <body class="h-full">
     <div class="min-h-full">
-    
+
       <% if usuario_signed_in? %>
         <%= render 'layouts/navbar' %>
       <% end %>
-    
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+
       <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl py-4 sm:px-6 lg:px-8">
+          <% if !flash.empty? %>
+            <% flash.each do |type, message| %>
+              <div class="flex justify-between items-center bg-<%= type == 'notice' ? 'green' : 'red' %>-500 text-white px-4 py-2 rounded-lg mb-4">
+                <p><strong><%= type == 'notice' ? 'Success' : 'Error' %></strong> | <%= message %></p>
+                <% current_path = request.original_url %>
+                <%= link_to current_path do %>
+                  <%= embedded_svg 'icon-delete', class: 'h-4 w-4 fill-white' %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+
           <%= yield %>
         </div>
       </main>
     </div>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

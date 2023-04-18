@@ -1,47 +1,57 @@
-<%= form_with(model: cliente) do |form| %>
-  <% if cliente.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+<div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-xl p-4 mt-4">
+  <%= form_with(model: @cliente) do |form| %>
+    <div class=" pb-8">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-      <ul>
-        <% cliente.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <%# nome %>
+        <div class="sm:col-span-3">
+          <%= form.label :nome, class: input_label %>
+          <div class="mt-2">
+            <%= form.text_field :nome, class: input_text %>
+          </div>
+        </div>
+
+        <%# cpf %>
+        <div class="sm:col-span-3">
+          <%= form.label :cpf, 'CPF', class: input_label %>
+          <div class="mt-2">
+            <%= form.text_field :cpf, class: input_text %>
+          </div>
+        </div>
+
+        <%# cnh %>
+        <div class="sm:col-span-3">
+          <%= form.label :cnh, 'CNH', class: input_label %>
+          <div class="mt-2">
+            <%= form.text_field :cnh, class: input_text %>
+          </div>
+        </div>
+
+        <%# profile url %>
+        <div class="sm:col-span-3">
+          <%= form.label :profile_url, 'Avatar Url', class: input_label %>
+          <div class="mt-2">
+            <%= form.text_field :profile_url, class: input_text %>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <%= link_to "Cancelar", clientes_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+        <%= form.submit 'Salvar', class: btn_primary %>
+      </div>
+
+      <% if cliente.errors.any? %>
+        <div class="flex flex-col justify-between items-center text-red-500 px-4 py-2 rounded-lg mb-4">
+          <strong><%= pluralize(cliente.errors.count, "error") %> </strong>
+
+          <ul>
+            <% cliente.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
   <% end %>
-
-  <div class="border-b border-gray-900/10 pb-12">
-    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
-      <%# nome %>
-      <div class="sm:col-span-3">
-        <%= form.label :nome, class: label_classes %>
-        <div class="mt-2">
-          <%= form.text_field :nome, class: input_classes %>
-        </div>
-      </div>
-
-      <%# cpf %>
-      <div class="sm:col-span-3">
-        <%= form.label :cpf, 'CPF', class: label_classes %>
-        <div class="mt-2">
-          <%= form.text_field :cpf, class: input_classes %>
-        </div>
-      </div>
-
-      <%# cnh %>
-      <div class="sm:col-span-3">
-        <%= form.label :cnh, 'CNH', class: label_classes %>
-        <div class="mt-2">
-          <%= form.text_field :cnh, class: input_classes %>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-      <%= link_to "Cancelar", clientes_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
-      <%= form.submit 'Salvar', class: botoes_azuis %>
-    </div>
-  </div>
-<% end %>
+</div>

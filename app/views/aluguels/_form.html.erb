@@ -14,14 +14,14 @@
   <div class="border-b border-gray-900/10 pb-12">
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
       <div class="sm:col-span-3">
-        <%= form.label 'Cliente', class: label_classes %>
+        <%= form.label 'Cliente', class: input_label %>
         <div class="mt-2">
           <%= form.collection_select :cliente_id, Cliente.all, :id, :nome, {prompt: 'selecionar um cliente'}, {class: select_classes} %>
         </div>
       </div>
 
       <div class="sm:col-span-3">
-        <%= form.label 'Veiculo', class: label_classes %>
+        <%= form.label 'Veiculo', class: input_label %>
         <div class="mt-2">
           <%= form.collection_select :veiculo_id, Veiculo.all, :id, :to_s, {prompt: 'selecionar um veículo'}, {class: select_classes} %>
         </div>
@@ -51,6 +51,6 @@
 
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <%= link_to "Cancelar", aluguels_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
-      <%= form.submit 'Salvar', class: botoes_azuis %>
+      <%= form.submit 'Salvar', class: btn_primary %>
     </div>
   <% end %>
