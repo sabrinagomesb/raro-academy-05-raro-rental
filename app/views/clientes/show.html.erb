@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :titulo do %>
+  <span>
+    Cliente
+  </span>
+<% end %>
 
-<%= render @cliente %>
+<% content_for :new_button do %>
+  <%= link_to "Novo cliente", new_cliente_path, class: btn_primary %>
+<% end %>
 
-<div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
-
-  <%= button_to "Destroy this cliente", @cliente, method: :delete %>
+<div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-xl p-6 mt-4">
+  <img src="<%= @cliente.profile_url %>" alt="Cliente Profile Photo" class="border border-gray-700 h-36 w-36 object-cover rounded-full">
+  <div class="mt-4">
+    <h2 class="text-lg font-semibold text-gray-800"><%= @cliente.nome %></h2>
+    <p class="text-gray-600"><strong>CPF:</strong> <%= @cliente.cpf %></p>
+    <p class="text-gray-600"><strong>CNH:</strong> <%= @cliente.cnh %></p>
+  </div>
+  <div class="flex justify-evenly gap-4 mt-4">
+    <%= link_to "Editar", edit_cliente_path(@cliente), class: btn_primary %>
+    <%= button_to "Deletar", @cliente, method: :delete, class: btn_danger %>
+  </div>
+  <%= link_to "Voltar para clientes", clientes_path, class: btn_simple %>
 </div>
