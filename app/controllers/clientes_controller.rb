@@ -53,9 +53,9 @@ class ClientesController < ApplicationController
   def destroy
     begin
       @cliente.destroy
-      flash[:notice] = "Client removed successfully!"
+      flash[:notice] = "Cliente removed successfully!"
     rescue ActiveRecord::InvalidForeignKey
-      flash[:alert] = "Client can't be removed because it has rentals!"
+      flash[:alert] = "Cliente can't be removed because it has rentals!"
     end
     redirect_to clientes_url
   end
