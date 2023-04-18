@@ -3,7 +3,13 @@
 one:
   cliente: one
   veiculo: one
+  data_inicio: 2023-04-18
+  data_fim: 2023-04-18
+  valor_pago: 1.5
 
 two:
   cliente: two
   veiculo: two
+  data_inicio: 2023-04-18
+  data_fim: 2023-04-18
+  valor_pago: 1.5

@@ -28,10 +28,29 @@
       </div>
     </div>
 
+    <div class="sm:col-span-3">
+      <%= form.label :data_inicio, class: label_classes  %>
+      <div class="mt-2">
+        <%= form.date_field :data_inicio, class: input_classes %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-3">
+      <%= form.label :data_fim, class: label_classes  %>
+      <div class="mt-2">
+        <%= form.date_field :data_fim, class: input_classes %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-3">
+      <%= form.label :valor_pago, class: label_classes  %>
+      <div class="mt-2">
+        <%= form.text_field :valor_pago, class: input_classes, placeholder: "Apenas números. Ex.: 1350.75" %>
+      </div>
+    </div>
+
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <%= link_to "Cancelar", aluguels_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
       <%= form.submit 'Salvar', class: botoes_azuis %>
     </div>
-  </div>
-
-<% end %>
+  <% end %>

@@ -17,7 +17,7 @@ class AluguelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create aluguel" do
     assert_difference("Aluguel.count") do
-      post aluguels_url, params: { aluguel: { cliente_id: @aluguel.cliente_id, veiculo_id: @aluguel.veiculo_id } }
+      post aluguels_url, params: { aluguel: { cliente_id: @aluguel.cliente_id, data_fim: @aluguel.data_fim, data_inicio: @aluguel.data_inicio, valor_pago: @aluguel.valor_pago, veiculo_id: @aluguel.veiculo_id } }
     end
 
     assert_redirected_to aluguel_url(Aluguel.last)
@@ -34,7 +34,7 @@ class AluguelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update aluguel" do
-    patch aluguel_url(@aluguel), params: { aluguel: { cliente_id: @aluguel.cliente_id, veiculo_id: @aluguel.veiculo_id } }
+    patch aluguel_url(@aluguel), params: { aluguel: { cliente_id: @aluguel.cliente_id, data_fim: @aluguel.data_fim, data_inicio: @aluguel.data_inicio, valor_pago: @aluguel.valor_pago, veiculo_id: @aluguel.veiculo_id } }
     assert_redirected_to aluguel_url(@aluguel)
   end
 

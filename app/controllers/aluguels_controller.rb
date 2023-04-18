@@ -59,13 +59,14 @@ class AluguelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_aluguel
-      @aluguel = Aluguel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def aluguel_params
-      params.require(:aluguel).permit(:cliente_id, :veiculo_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_aluguel
+    @aluguel = Aluguel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def aluguel_params
+    params.require(:aluguel).permit(:cliente_id, :veiculo_id, :data_inicio, :data_fim, :valor_pago)
+  end
 end
