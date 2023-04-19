@@ -3,7 +3,8 @@ class UsuariosController < ApplicationController
   before_action :authorize_root!
 
   def index
-    @usuarios = Usuario.all
+    @u = Usuario.ransack(params[:q])
+    @usuarios = @u.result(distinct: true)
   end
 
   # def show
