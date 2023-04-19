@@ -10,7 +10,6 @@
 
 <div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-2xl p-4">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="p-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
 
       <div class="sm:col-span-3">
@@ -69,6 +68,9 @@
       <div class="actions">
         <%= f.submit "Atualizar cadastro", class: btn_primary %>
       </div>
+    </div>
+    <div class="rounded-md mt-4 p-4 text-red-500">
+      <%= render "devise/shared/error_messages", resource: resource %>
     </div>
   <% end %>
 </div>

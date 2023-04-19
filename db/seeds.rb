@@ -2,11 +2,14 @@ require "faker"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-# Usuários root
+# Usuário root
+Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", root: true, foto: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png"
+
+# Usuário não root
 Usuario.create! email: "sabrinagbdev@gmail.com", password: "sabrina@123", nome: "Sabrina Gomes", foto: "https://avatars.githubusercontent.com/
 u/117469503?v=4"
 
-Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", foto: "https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png"
+Usuario.create! email: "paulo@raro.com", password: "paulo@123", nome: "Paulo Fernandes", foto: "https://git.raroacademy.com.br/uploads/-/system/user/avatar/2/avatar.png?width=96"
 
 # db/seeds.rb
 
