@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="w-full flex items-center justify-end p-4 gap-4 ">
-  <%= search_form_for(@q, url: clientes_path	) do |f| %>
+  <%= search_form_for(@c, url: clientes_path	) do |f| %>
     <div class="form-group">
       <%= f.label :nome, class: input_label_search %>
       <%= f.search_field :nome_cont, class: input_text_searh %>

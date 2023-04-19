@@ -7,4 +7,8 @@ class Cliente < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["cnh", "cpf", "created_at", "id", "nome", "profile_url", "updated_at"]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end

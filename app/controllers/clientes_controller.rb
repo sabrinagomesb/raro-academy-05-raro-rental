@@ -7,8 +7,8 @@ class ClientesController < ApplicationController
   # CRUD -> create, read, update, delete
   # GET /clientes or /clientes.json
   def index
-    @q = Cliente.ransack(params[:q])
-    @clientes = @q.result(distinct: true)
+    @c = Cliente.ransack(params[:q])
+    @clientes = @c.result(distinct: true)
   end
 
   # GET /clientes/1 or /clientes/1.json
