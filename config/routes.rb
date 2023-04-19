@@ -9,5 +9,15 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "aluguels#index"
+
+  authenticated :usuario do
+    # root to: 'dashboard#index', as: :authenticated_root
+    root "aluguels#index"
+  end
+
+  unauthenticated do
+    as :usuario do
+      root to: "devise/sessions#new", as: :unauthenticated_root
+    end
+  end
 end
