@@ -9,6 +9,8 @@ Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", root
 Usuario.create! email: "sabrinagbdev@gmail.com", password: "sabrina@123", nome: "Sabrina Gomes", foto: "https://avatars.githubusercontent.com/
 u/117469503?v=4"
 
+Usuario.create! email: "paulo@raro.com", password: "paulo@123", nome: "Paulo Fernandes", foto: "https://git.raroacademy.com.br/uploads/-/system/user/avatar/2/avatar.png?width=96"
+
 # db/seeds.rb
 
 # Clientes

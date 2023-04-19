@@ -1,0 +1,42 @@
+<% content_for :titulo do %>
+  <span>
+    Usuarios
+  </span>
+<% end %>
+
+<% content_for :new_button do %>
+  <%= link_to "Novo usuario", new_usuario_registration_path, class: btn_primary %>
+<% end %>
+
+<div id="usuarios" class="w-full overflow-hidden rounded-lg shadow-lg">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr
+          class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100"
+        >
+          <th class="p-5 w-1/6 divide-x">Nome</th>
+          <th class="p-5 w-1/6 divide-x">E-mail</th>
+          <th class="p-5 w-1/6 divide-x">Admin</th>
+          <%# <th class="p-4 divide-x flex justify-center">Ações</th> %>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y items-center justify-center">
+        <% @usuarios.each do |usuario| %>
+          <tr class="text-gray-700">
+            <td class="px-6 py-6"><%= usuario.nome %></td>
+            <td class="px-6 py-6"><%= usuario.email %></td>
+            <td class="px-6 py-6"><%= usuario.root? ? "Sim" : "Não" %></td>
+            <%# <td class="py-3"> %>
+            <%# <div class="flex items-center space-x-2"> %>
+            <%# <%= link_to "Ver usuario", usuario_registration_path(usuario.id), class: btn_simple %>
+            <%# <%= link_to "Editar", edit_usuario_path(usuario.id), class: btn_secondary %>
+            <%# <%= button_to "Deletar", dest(usuario), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse usuario?" }, class: btn_danger %>
+            <%# </div> %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
