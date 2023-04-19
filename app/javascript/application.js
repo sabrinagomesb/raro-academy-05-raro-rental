@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./context-menu"
 import "./controllers"
-import "./home"
+import "./relogio"

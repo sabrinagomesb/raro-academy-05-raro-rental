@@ -36,4 +36,9 @@ module TailwindHelpers
   def input_label
     "block text-sm font-medium leading-6 text-gray-900"
   end
+
+  # Dropdown menu
+  def dropdown_menu_item
+    "block px-4 py-2 text-sm text-gray-700"
+  end
 end
