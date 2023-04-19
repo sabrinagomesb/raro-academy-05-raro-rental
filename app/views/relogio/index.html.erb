@@ -19,7 +19,7 @@
     <div class="py-6 text-start lg:border-t lg:border-gray-200">
       <h1 class="text-3xl font-bold tracking-tight text-gray-600 sm:text-5xl">Contador Regressivo</h1>
 
-      <div class="mt-6 flex max-w-4xl gap-x-4">
+      <div class="mt-6 flex m-full gap-x-4 flex-1">
         <label for="contador-regressivo" class="sr-only">Tempo em minutos</label>
         <input
           type="number"
@@ -29,23 +29,31 @@
           class="min-w-0 flex-auto rounded-md border-1 bg-white/5 px-3.5 py-2 shadow-sm sm:text-sm sm:leading-6"
           placeholder="Tempo em minutos"
         >
-        <button
-          id="iniciar-contagem"
-          type="button"
-          class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-        >Iniciar</button>
+        <div class="flex flex-1 gap-4">
+          <button
+            id="iniciar-contagem"
+            type="button"
+            class="flex-none rounded-md bg-lime-500 px-4 w-32 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-500 disabled:cursor-not-allowed"
+          >Iniciar</button>
 
-        <button
-          id="pausar-contagem"
-          type="button"
-          class="flex-none rounded-md bg-amber-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
-        >Pausar</button>
+          <button
+            id="pausar-contagem"
+            type="button"
+            class="flex-none rounded-md bg-indigo-500 px-4 w-32 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:cursor-not-allowed"
+          >Pausar</button>
 
-        <button
-          id="limpar-contagem"
-          type="button"
-          class="flex-none rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
-        >limpar</button>
+          <button
+            id="stop-contagem"
+            type="button"
+            class="flex-none rounded-md bg-amber-500 px-4 w-32 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 disabled:cursor-not-allowed"
+          >Stop</button>
+
+          <button
+            id="limpar-contagem"
+            type="button"
+            class="flex-none rounded-md bg-red-500 px-4 w-32 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 disabled:cursor-not-allowed"
+          >limpar</button>
+        </div>
       </div>
     </div>
     <div class="pb-6 text-center">
