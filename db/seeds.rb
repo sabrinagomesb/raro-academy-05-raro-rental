@@ -11,22 +11,35 @@ Usuario.create! email: "root@root.com", password: "root@123", nome: "Root", foto
 # db/seeds.rb
 
 # Clientes
-10.times do
+20.times do
   Cliente.create! nome: Faker::Name.name, cpf: Faker::Number.number(digits: 11).to_s, cnh: Faker::Number.number(digits: 11).to_s, profile_url: Faker::Avatar.image
 end
 
 # Veiculos
-Veiculo.create! marca: "Ford", modelo: "Ka", placa: "KAR1234", chassi: "12345678901234560", cor: "Vermelho"
-Veiculo.create! marca: "Fiat", modelo: "Uno", placa: "CAR4321", chassi: "14445678901234567", cor: "Prata"
-Veiculo.create! marca: "Fiat", modelo: "Mobi", placa: "MOB0101", chassi: "33345678901234567", cor: "Branco"
-Veiculo.create! marca: "Fiat", modelo: "Siena", placa: "BBB1458", chassi: "22345678901234567", cor: "Prata"
-Veiculo.create! marca: "Fiat", modelo: "Argo", placa: "ABC9999", chassi: "55345678901234567", cor: "Branco"
-Veiculo.create! marca: "Hyundai", modelo: "HB20", placa: "RAR0000", chassi: "99345678901234567", cor: "Vermelho"
+carros = {
+  "Ford" => ["Ka", "Fiesta", "Focus", "Ecosport", "Ranger", "Fusion", "Mustang"],
+  "Fiat" => ["Uno", "Palio", "Siena", "Strada", "Toro", "Mobi", "Argo"],
+  "Hyundai" => ["HB20", "HB20S", "HB20X", "Creta", "Tucson", "Elantra", "I30"],
+  "Volkswagen" => ["Gol", "Golf", "Polo", "T-Cross", "Tiguan", "Amarok", "Saveiro"],
+  "Chevrolet" => ["Onix", "Prisma", "Cruze", "Cobalt", "Tracker", "S10", "Camaro"],
+  "Honda" => ["Fit", "City", "Civic", "HR-V", "WR-V", "CR-V", "Accord"],
+  "Toyota" => ["Corolla", "Etios", "Yaris", "Hilux", "SW4", "Rav4", "Supra"],
+  "Renault" => ["Sandero", "Kwid", "Logan", "Duster", "Captur", "Koleos", "Trafic"],
+  "Jeep" => ["Renegade", "Compass", "Grand Cherokee", "Wrangler", "Gladiator", "Cherokee", "Commander"],
+  "Nissan" => ["March", "Versa", "Sentra", "Kicks", "Frontier", "Pathfinder", "X-Trail"],
+}
+
+cores = ["Vermelho", "Preto", "Branco", "Prata", "Azul", "Amarelo", "Verde", "Cinza"]
+
+20.times do
+  marca_aleatoria = carros.keys.sample
+  carro_aleatorio = carros[marca_aleatoria].sample
+  placa_aleatoria = Faker::Vehicle.license_plate.gsub("-", "").upcase
+  Veiculo.create! marca: marca_aleatoria, modelo: carro_aleatorio, placa: placa_aleatoria, chassi: Faker::Number.number(digits: 17).to_s, cor: cores.sample
+end
 
 # Aluguel
-Aluguel.create! cliente_id: 1, veiculo_id: 2, data_inicio: Date.today, data_fim: Date.today + 4.days, valor_pago: 150
-Aluguel.create! cliente_id: 2, veiculo_id: 3, data_inicio: Date.today, data_fim: Date.today + 5.days, valor_pago: 200
-Aluguel.create! cliente_id: 3, veiculo_id: 4, data_inicio: Date.today, data_fim: Date.today + 3.days, valor_pago: 300
-Aluguel.create! cliente_id: 4, veiculo_id: 5, data_inicio: Date.today, data_fim: Date.today + 7.days, valor_pago: 450
-Aluguel.create! cliente_id: 5, veiculo_id: 6, data_inicio: Date.today, data_fim: Date.today + 7.days, valor_pago: 750
-Aluguel.create! cliente_id: 6, veiculo_id: 1, data_inicio: Date.today, data_fim: Date.today + 2.days, valor_pago: 570
+
+20.times do
+  Aluguel.create! cliente_id: rand(1..20), veiculo_id: rand(1..20), data_inicio: Date.today, data_fim: Date.today + rand(1..10).days, valor_pago: rand(100..1000)
+end

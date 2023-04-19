@@ -58,7 +58,7 @@ gem 'devise'
 gem 'faker'
 
 # gem to help work with search
-gem 'ransack', :github => 'activerecord-hackery/ransack', :branch => 'main'
+gem 'ransack'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
