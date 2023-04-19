@@ -72,7 +72,7 @@ Além da gem indicada para implementar os campos de busca, foi utilizada também
 O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está o resultado do design da tela de login e de cada etapa do CRUD (Create - telas para cadastros / Read - tabela com dados / Update - telas para edições / Delete - botões "delete")
 
 - TELA DE LOGIN:
-  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="90%">
   <br>
 - **CADASTROS** DE CADA ENTIDADE:
 <p align="center">
@@ -81,6 +81,7 @@ O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está
  <img src="./.gitlab/screenshots/veiculo-criar.png" alt="preview exerc" width="30%">
  </p>
   <br>
+
 - TABELAS COM **DADOS** DE CADA ENTIDADE:
   <p align="center">
   <img src="./.gitlab/screenshots/aluguel-listar.png" alt="preview exerc" width="30%">
@@ -103,7 +104,7 @@ O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está
   </p>
   <br>
 - ALERT GERADO PARA BOTÃO **DELETE**:
-  <img src="./.gitlab/screenshots/alert-delete.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/alerte-delete.png" alt="preview exerc" width="90%">
   <br>
 
 #### Validações
@@ -112,12 +113,9 @@ Foram criadas validações em todas as entidades, exceto para Usuário, que teve
 
 #### Campos de busca
 
-- Resultado:
-<p align="center">
-  <img src="./.gitlab/screenshots/busca-aluguel.png" alt="preview exerc" width="30%">
-  <img src="./.gitlab/screenshots/busca-cliente.png" alt="preview exerc" width="30%">
-  <img src="./.gitlab/screenshots/busca-veiculo.png" alt="preview exerc" width="30%">
-  </p>
+Foram implementados campos de busca em todas as entidades. É possível realizar buscas em todos os dados de cada entidade. Abaixo está o resultado da entidade Cliente.
+
+  <img src="./.gitlab/screenshots/busca-cliente.jpg" alt="preview exerc" width="80%">
   <br>
 
 #### Usuário logado | Gestão de Usuários
@@ -130,14 +128,14 @@ Ambos tem o menu de contexto, mas o usuário root tem acessos extras, enquanto o
   - Acessa rota que exibe o cadastro de um novo usuário.
     <br>
 - NAVBAR USUÁRIOS:
-  <img src="./.gitlab/screenshots/navbar-user-root.png" alt="preview exerc" width="100%">
-  <img src="./.gitlab/screenshots/navbar-user-padrao.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/navbar-user-root.png" alt="preview exerc" width="90%">
+  <img src="./.gitlab/screenshots/navbar-user-padrao.png" alt="preview exerc" width="90%">
 - TABELA USUÁRIOS | CADASTRO NOVO USUÁRIO:
-  <img src="./.gitlab/screenshots/lista-users.png" alt="preview exerc" width="100%">
-  <img src="./.gitlab/screenshots/usuario-criar.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/lista-users.png" alt="preview exerc" width="90%">
+  <img src="./.gitlab/screenshots/usuario-criar.png" alt="preview exerc" width="90%">
 
 - EDITAR PRÓPRIO USUÁRIO :
-  <img src="./.gitlab/screenshots/usuario-editar.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/usuario-editar.png" alt="preview exerc" width="90%">
 
 #### Relógio - Atividade Extra
 
@@ -153,7 +151,7 @@ Outras implementações também foram feitas:
 - Diferente do botão _pause_, que quando é acionado para, mas pode retornar de onde parou, foi incluído o botão _stop_, que para, mas não pode ser retomado.
 
 O resultado pode ser visualizado abaixo:
-<img src="./.gitlab/screenshots/relogio.png" alt="preview exerc" width="100%">
+<img src="./.gitlab/screenshots/relogio.png" alt="preview exerc" width="90%">
 
 ### Desafios e dificuldades
 
