@@ -1,3 +1,5 @@
+require "ransack"
+
 class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
   before_action :authenticate_usuario!
@@ -5,7 +7,8 @@ class ClientesController < ApplicationController
   # CRUD -> create, read, update, delete
   # GET /clientes or /clientes.json
   def index
-    @clientes = Cliente.all
+    @c = Cliente.ransack(params[:q])
+    @clientes = @c.result(distinct: true)
   end
 
   # GET /clientes/1 or /clientes/1.json

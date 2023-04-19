@@ -8,37 +8,80 @@
   <%= link_to "Novo veículo", new_veiculo_path, class: btn_primary %>
 <% end %>
 
+<div class="">
+  <%= search_form_for(@v, url: veiculos_path	) do |f| %>
+    <div class="w-full grid grid-cols-4 gap-4">
+      <div>
+        <%= f.label :marca, class: input_label_search %>
+        <%= f.search_field :marca_cont, class: input_text_searh  %>
+      </div>
+
+      <div>
+      <%= f.label :modelo, class: input_label_search %>
+      <%= f.search_field :modelo_cont, class: input_text_searh  %>
+      </div>
+
+      <div>
+      <%= f.label :placa, class: input_label_search %>
+      <%= f.search_field :placa_cont, class: input_text_searh  %>
+      </div>
+
+      <div>
+      <%= f.label :cor, class: input_label_search %>
+      <%= f.search_field :cor_cont, class: input_text_searh  %>
+      </div>
+
+      <div>
+      <%= f.label :chassi, class: input_label_search %>
+      <%= f.search_field :chassi_cont, class: input_text_searh  %>
+      </div>
+
+      <div>
+      <%= f.submit 'Buscar', class: btn_primary %>
+      </div>
+    </div>
+    <div class="w-full flex items-center justify-end px-8 mb-4">
+    </div>
+  <% end %>
+</div>
+
 <div id="veiculos" class="w-full overflow-hidden rounded-lg shadow-lg">
   <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr
-          class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100 "
-        >
-          <th class="p-4 w-1/7 divide-x">Marca</th>
-          <th class="p-4 w-1/7 divide-x">Modelo</th>
-          <th class="p-4 w-1/7 divide-x">Placa</th>
-          <th class="p-4 w-1/7 divide-x">Chassi</th>
-          <th class="p-4 w-1/7 divide-x">Cor</th>
-          <th class="p-4 w-2/7 divide-x flex justify-center">Ações</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y">
-        <% @veiculos.each do |veiculo| %>
-          <tr class="text-gray-700">
-            <td class="p-6"><%= veiculo.marca %></td>
-            <td class="p-3"><%= veiculo.modelo %></td>
-            <td class="p-3"><%= veiculo.placa %></td>
-            <td class="p-3"><%= veiculo.chassi %></td>
-            <td class="p-3"><%= veiculo.cor %></td>
-            <td class="py-3">
-              <div class="flex items-center justify-center space-x-2">
-                <%= link_to "Ver veiculo", veiculo, class: btn_simple %>
-                <%= link_to "Editar", edit_veiculo_path(veiculo.id), class: btn_secondary %>
-                <%= button_to "Deletar", veiculo_path(veiculo), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse veiculo?"}, class: btn_danger %>
-              </div>
-            </td>
+    <% if @veiculos.empty? %>
+      <div class=" p-4 text-zinc-800 bg-white flex justify-center">
+        <strong>Sem resultados encontrado</strong>
+      </div>
+    <% else %>
+      <table class="w-full whitespace-no-wrap">
+        <thead>
+          <tr
+            class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100 "
+          >
+            <th class="p-4 w-1/7 divide-x">Marca</th>
+            <th class="p-4 w-1/7 divide-x">Modelo</th>
+            <th class="p-4 w-1/7 divide-x">Placa</th>
+            <th class="p-4 w-1/7 divide-x">Chassi</th>
+            <th class="p-4 w-1/7 divide-x">Cor</th>
+            <th class="p-4 w-2/7 divide-x flex justify-center">Ações</th>
           </tr>
+        </thead>
+        <tbody class="bg-white divide-y">
+          <% @veiculos.each do |veiculo| %>
+            <tr class="text-gray-700">
+              <td class="p-6"><%= veiculo.marca %></td>
+              <td class="p-3"><%= veiculo.modelo %></td>
+              <td class="p-3"><%= veiculo.placa %></td>
+              <td class="p-3"><%= veiculo.chassi %></td>
+              <td class="p-3"><%= veiculo.cor %></td>
+              <td class="py-3">
+                <div class="flex items-center justify-center space-x-2">
+                  <%= link_to "Ver veiculo", veiculo, class: btn_simple %>
+                  <%= link_to "Editar", edit_veiculo_path(veiculo.id), class: btn_secondary %>
+                  <%= button_to "Deletar", veiculo_path(veiculo), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse veiculo?"}, class: btn_danger %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
