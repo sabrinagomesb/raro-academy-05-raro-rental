@@ -8,13 +8,33 @@
   <%= link_to "Novo cliente", new_cliente_path, class: btn_primary %>
 <% end %>
 
-<div id="clientes" class="w-full overflow-hidden rounded-lg shadow-lg">
+<div class="w-full flex items-center justify-end p-4 gap-4 ">
+  <%= search_form_for(@q, url: clientes_path	) do |f| %>
+    <div class="form-group">
+      <%= f.label :nome, class: input_label_search %>
+      <%= f.search_field :nome_cont, class: input_text_searh %>
+
+      <%= f.label :cpf, class: input_label_search %>
+      <%= f.search_field :cpf_cont, class: input_text_searh %>
+
+      <%= f.label :cnh, class: input_label_search %>
+      <%= f.search_field :cnh_cont, class: input_text_searh %>
+
+      <%= f.submit 'Buscar', class: btn_primary %>
+    </div>
+  <% end %>
+</div>
+
+<div id="clientes" class="we-full overflow-hidden rounded-lg shadow-lg">
   <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
+      <% if @clientes.empty? %>
+        <div class=" p-4 text-zinc-800 bg-white flex justify-center">
+          <strong>Sem resultados encontrado</strong>
+        </div>
+      <% else %>
+      <table class="w-full whitespace-no-wrap">
       <thead>
-        <tr
-          class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100"
-        >
+        <tr class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100">
           <th class="p-4 w-1/4 divide-x">Nome</th>
           <th class="p-4 w-1/4 divide-x">CPF</th>
           <th class="p-4 w-1/4 divide-x">CNH</th>
@@ -36,6 +56,7 @@
             </td>
           </tr>
         <% end %>
+      <% end%>
       </tbody>
     </table>
   </div>

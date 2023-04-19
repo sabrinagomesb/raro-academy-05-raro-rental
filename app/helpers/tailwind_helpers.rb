@@ -1,15 +1,15 @@
 module TailwindHelpers
   # Buttons classes
   def btn_primary
-    "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+    "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer"
   end
 
   def btn_secondary
-    "bg-transparent hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-2 px-4 border border-indigo-500 hover:border-transparent rounded"
+    "bg-transparent hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-2 px-4 border border-indigo-500 hover:border-transparent rounded-md cursor-pointer"
   end
 
   def btn_danger
-    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer"
   end
 
   def btn_simple
@@ -29,12 +29,20 @@ module TailwindHelpers
     "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
   end
 
+  def input_text_searh
+    "mr-4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+  end
+
   def select_classes
     "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
   end
 
   def input_label
     "block text-sm font-medium leading-6 text-gray-900"
+  end
+
+  def input_label_search
+    "m-2 text-sm font-medium leading-6 text-gray-900"
   end
 
   # Dropdown menu
