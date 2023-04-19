@@ -4,7 +4,8 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos or /veiculos.json
   def index
-    @veiculos = Veiculo.all
+    @v = Veiculo.ransack(params[:q])
+    @veiculos = @v.result(distinct: true)
   end
 
   # GET /veiculos/1 or /veiculos/1.json
