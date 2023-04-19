@@ -15,7 +15,7 @@ pt-BR:
       not_found_in_database: "%{authentication_keys} ou senha inválidos."
       timeout: "Sua sessão expirou. Por favor, faça login novamente para continuar."
       unauthenticated: "Você precisa fazer login ou se registrar antes de continuar"
-      unconfirmed: "Você deve confirmar o seu endreço de e-mail antes de continuar."
+      unconfirmed: "Você deve confirmar o seu endereço de e-mail antes de continuar."
     mailer:
       confirmation_instructions:
         subject: "Instruções de confirmação"
@@ -42,7 +42,7 @@ pt-BR:
       signed_up_but_inactive: "Você se registrou com sucesso. Para efetuar login, você deverá ativar sua conta."
       signed_up_but_locked: "Você se registrou com sucesso. Mas não foi possível logar pois sua conta está bloqueada."
       signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, acesse o link enviado para ativar a sua conta."
-      update_needs_confirmation: "Você atualiou a sua conta com sucesso, mas precisamos verificar o seu novo endereço de e-mail. Por favor, acesse o seu e-mail e siga as instruções de confirmação para confirmar o seu novo endereço de e-mail."
+      update_needs_confirmation: "Você atualizou a sua conta com sucesso, mas precisamos verificar o seu novo endereço de e-mail. Por favor, acesse o seu e-mail e siga as instruções de confirmação para confirmar o seu novo endereço de e-mail."
       updated: "Sua conta foi atualizada com sucesso."
       updated_but_not_signed_in: "Sua conta foi atualizada com sucesso, mas como a sua senha foi redefinida, você precisa logar novamente."
     sessions:
