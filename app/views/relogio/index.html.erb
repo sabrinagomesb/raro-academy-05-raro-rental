@@ -1,3 +1,9 @@
+<% content_for :titulo do %>
+  <span>
+    Relógio
+  </span>
+<% end %>
+
 <!-- Page header -->
 <div class="bg-white shadow my-6">
   <div class="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
@@ -20,7 +26,7 @@
           min="0"
           name="contador-regressivo"
           id="contador-regressivo"
-          class="min-w-0 flex-auto rounded-md border-1 bg-white/5 px-3.5 py-2 shadow-sm sm:text-sm sm:leading-6"           
+          class="min-w-0 flex-auto rounded-md border-1 bg-white/5 px-3.5 py-2 shadow-sm sm:text-sm sm:leading-6"
           placeholder="Tempo em minutos"
         >
         <button
@@ -48,4 +54,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "home", "data-turbo-track": "reload", defer: true %>
+<%= javascript_include_tag "relogio", "data-turbo-track": "reload", defer: true %>

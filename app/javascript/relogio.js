@@ -4,7 +4,7 @@
 function relogioController() {
   // capturando o elemento que representa meu relogio.
   const relogio = document.querySelector('.relogio');
-  
+
   // declarando um intervalo de um segundo. A cada segundo, a operação da função do 1o parametro será executda.
   setInterval(() => {
     // estou capturando as horas do meu computador, e traduzindo para uma string em formato HH:MM:SS
@@ -38,7 +38,7 @@ function contadorRegressivoController() {
 
     // estou acessando aqui o valor escrito pelo usuário no input. Este método acessa este dado,
     // porém devolve o valor em formato string. Como pretendemos utiliza-lo com operações matemáticas,
-    // faço uma conversão do valor para float. 
+    // faço uma conversão do valor para float.
     // DICA.: estou usando float pois quero permitir ao meu usuário que coloque frações de minutos para
     // serem contadas.
     const minutos = parseFloat(inputContador.value);
@@ -77,15 +77,15 @@ function contadorRegressivoController() {
 
 /**
  * funcao utilitária, que calcula o tempo no formato HH:MM:SS:ms baseado em uma quantidade de milissegundos
- * @param {*} ms 
- * @returns 
+ * @param {*} ms
+ * @returns
  */
 function converterParaTempo(ms) {
   const segundos = Math.floor((ms / 1000) % 60);
   const minutos = Math.floor((ms / (1000 * 60)) % 60);
   const horas = Math.floor((ms / (1000 * 60 * 60)) % 24);
   const milissegundos = ms % 1000;
-  
+
   return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}:${milissegundos.toString().padStart(3, '0')}`;
 }
 

@@ -14,7 +14,7 @@
 
   <div class="flex justify-evenly gap-4 mt-4">
     <%= link_to "Editar", edit_veiculo_path(@veiculo), class: btn_primary %>
-    <%= button_to "Deletar", @veiculo, method: :delete, class: btn_danger %>
+    <%= button_to "Deletar", @veiculo, method: :delete, class: btn_danger, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse veiculo?" } %>
   </div>
   <%= link_to "Voltar para veículos", veiculos_path, class: btn_simple %>
 </div>
