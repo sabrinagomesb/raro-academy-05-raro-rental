@@ -4,7 +4,8 @@ class AluguelsController < ApplicationController
 
   # GET /aluguels or /aluguels.json
   def index
-    @aluguels = Aluguel.all
+    @a = Aluguel.ransack(params[:q])
+    @aluguels = @a.result(distinct: true)
   end
 
   # GET /aluguels/1 or /aluguels/1.json

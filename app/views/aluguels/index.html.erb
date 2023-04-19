@@ -8,37 +8,57 @@
   <%= link_to "Novo aluguel", new_aluguel_path, class: btn_primary %>
 <% end %>
 
+<div class="w-full flex items-center justify-end p-4 gap-4 ">
+  <%= search_form_for(@a, url: aluguels_path	) do |f| %>
+    <div class="form-group">
+      <%= f.label :data_inicio, class: input_label_search %>
+      <%= f.search_field :data_inicio_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+
+      <%= f.label :data_fim, class: input_label_search %>
+      <%= f.search_field :data_fim_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+
+      <%= f.submit 'Buscar', class: btn_primary %>
+    </div>
+  <% end %>
+</div>
+
 <div id="alugueis" class="w-full overflow-hidden rounded-lg shadow-lg">
   <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr
-          class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100"
-        >
-          <th class="p-5 w-1/8 divide-x">Cliente</th>
-          <th class="p-5 w-1/8 divide-x">Veiculo</th>
-          <th class="p-5 w-1/8 divide-x">Data Inicio</th>
-          <th class="p-5 w-1/8 divide-x">Data Fim</th>
-          <th class="p-5 w-1/8 divide-x">Valor Pago</th>
-          <th class="p-5 divide-x flex justify-center">Ações</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y">
-        <% @aluguels.each do |aluguel| %>
-          <tr class="text-gray-700">
-            <td class="px-8 py-3"><%= aluguel.cliente.nome %></td>
-            <td class="py-3"><%= aluguel.veiculo %></td>
-            <td class="py-3"><%= date_format_br aluguel.data_inicio %></td>
-            <td class="py-3"><%= date_format_br aluguel.data_fim %></td>
-            <td class="py-3"><%= currency_format_brl aluguel.valor_pago %></td>
-            <td class="py-3">
-              <div class="flex items-center space-x-2">
-                <%= link_to "Ver aluguel", aluguel, class: btn_simple %>
-                <%= link_to "Editar", edit_aluguel_path(aluguel.id), class: btn_secondary %>
-                <%= button_to "Deletar", aluguel_path(aluguel), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse aluguel?" }, class: btn_danger %>
-              </div>
-            </td>
+   <% if @aluguels.empty? %>
+        <div class=" p-4 text-zinc-800 bg-white flex justify-center">
+          <strong>Sem resultados encontrado</strong>
+        </div>
+    <% else %>
+      <table class="w-full whitespace-no-wrap">
+        <thead>
+          <tr
+            class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100"
+          >
+            <th class="p-5 w-1/8 divide-x">Cliente</th>
+            <th class="p-5 w-1/8 divide-x">Veiculo</th>
+            <th class="p-5 w-1/8 divide-x">Data Inicio</th>
+            <th class="p-5 w-1/8 divide-x">Data Fim</th>
+            <th class="p-5 w-1/8 divide-x">Valor Pago</th>
+            <th class="p-5 divide-x flex justify-center">Ações</th>
           </tr>
+        </thead>
+        <tbody class="bg-white divide-y">
+          <% @aluguels.each do |aluguel| %>
+            <tr class="text-gray-700">
+              <td class="px-8 py-3"><%= aluguel.cliente.nome %></td>
+              <td class="py-3"><%= aluguel.veiculo %></td>
+              <td class="py-3"><%= date_format_br aluguel.data_inicio %></td>
+              <td class="py-3"><%= date_format_br aluguel.data_fim %></td>
+              <td class="py-3"><%= currency_format_brl aluguel.valor_pago %></td>
+              <td class="py-3">
+                <div class="flex items-center space-x-2">
+                  <%= link_to "Ver aluguel", aluguel, class: btn_simple %>
+                  <%= link_to "Editar", edit_aluguel_path(aluguel.id), class: btn_secondary %>
+                  <%= button_to "Deletar", aluguel_path(aluguel), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse aluguel?" }, class: btn_danger %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
