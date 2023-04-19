@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "relogio", to: "relogio#index"
-  devise_for :usuarios, :controllers => { :sessions => "sessions" }
+  devise_for :usuario, controllers: {
+                         registrations: "usuarios/registrations",
+                       }
   resources :aluguels
   resources :clientes
   resources :veiculos
