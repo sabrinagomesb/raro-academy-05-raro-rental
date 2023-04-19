@@ -7,10 +7,12 @@
       - [Gems](#gems)
       - [Design](#design)
       - [Validações](#validações)
+      - [Campos de busca](#campos-de-busca)
+      - [Usuário logado | Gestão de Usuários](#usuário-logado--gestão-de-usuários)
       - [Relógio - Atividade Extra](#relógio---atividade-extra)
     - [Desafios e dificuldades](#desafios-e-dificuldades)
+    - [Pontos de melhoria](#pontos-de-melhoria)
   - [Instalação](#instalação)
-    - [Adiciona uma dependência do tailwind no frontend](#adiciona-uma-dependência-do-tailwind-no-frontend)
 
 # Admin Locadora RaroRental
 
@@ -34,7 +36,7 @@ Tendo como base o enunciado do exercício, os objetos são:
   - senha;
   - confirmação de senha;
   - foto (url para uma foto).
-- [ ] Implementar gestão de usuário com os seguintes requisitos:
+- [x] Implementar gestão de usuário com os seguintes requisitos:
   - CRUD de cadastro de usuários;
   - Validação de usuário credenciado e autenticado para acessar o sistema de administraão.
 - [ ] Implementar campo de busca que permita o usuário operar em pelo menos um campo das entidades em todas as telas de listagem.
@@ -45,7 +47,7 @@ Como atividade extra foram solicitadas as seguintes correções no relógio cria
 
 - [x] Garantir que o timer seja iniciado somente se houver um tempo informado;
 - [x] Impedir que o usuário consiga iniciar o timer mais de uma vez;
-- [ ] Corrigir a ação de pausar para que o timer não seja reiniciado, mas retorne do ponto de onde parou;
+- [x] Corrigir a ação de pausar para que o timer não seja reiniciado, mas retorne do ponto de onde parou;
 - [x] Implementar a função do botão `limpar` do timer.
 
 ## Considerações importantes
@@ -63,13 +65,51 @@ A listagem das issues criadas pode ser visualizada [aqui](./.gitlab/issues.md). 
 
 #### Gems
 
-Além da gem indicada para implementar os campos de busca, foi utiliazada também a _gem_ [Faker](https://github.com/faker-ruby/faker) para gerar dados _fake_ da entidade **Usuário**.
+Além da gem indicada para implementar os campos de busca, foi utilizada também a _gem_ [Faker](https://github.com/faker-ruby/faker) para gerar dados _fake_ da entidade **Usuário**.
 
 #### Design
+
+O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está o resultado do design da tela de login e de cada etapa do CRUD (Create - telas para cadastros / Read - tabela com dados / Update - telas para edições / Delete - botões "delete")
+
+- TELA DE LOGIN:
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <br>
+- **CADASTROS** DE CADA ENTIDADE:
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <br>
+- TABELAS COM **DADOS** DE CADA ENTIDADE:
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <br>
+- TELAS PARA **EDIÇÃO** DE CADA ENTIDADE:
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <br>
+- ALERT GERADO PARA BOTÃO **DELETE**:
+  <img src="./.gitlab/screenshots/tela-login.png" alt="preview exerc" width="100%">
+  <br>
 
 #### Validações
 
 Foram criadas validações em todas as entidades, exceto para Usuário, que teve suas validações criadas a partir da gem Devise. As mesmas foram implementadas nos _models_, usando como base a própria documentação do [Rails](https://guiarails.com.br/active_record_validations.html).
+
+#### Campos de busca
+
+- Resultado:
+
+#### Usuário logado | Gestão de Usuários
+
+Para cumprir os requisitos dessa parte do exercício foi implementado dois tipos de usuários: **usuário root** e **usuário padrão**.
+Ambos tem o menu de contexto, mas o usuário root tem acessos extras, enquanto o usuário padrão acessa apenas as funcionalidades das entidades: Cliente, Veiculo e Aluguel.
+
+- Usuário Root:
+  - Visualiza na _navbar_ um botão de acesso a todos usuários cadastrados;
+  - Acessa rota que exibe o cadastro de um novo usuário.
+    <br>
+- NAVBAR USUÁRIOS:
+  <img src="./.gitlab/screenshots/navbar-user-root.png" alt="preview exerc" width="100%">
+  <img src="./.gitlab/screenshots/navbar-user-padrao.png" alt="preview exerc" width="100%">
+- TABELA USUÁRIOS | CADASTRO NOVO USUÁRIO
+
+- EDITAR PRÓPRIO USUÁRIO :
 
 #### Relógio - Atividade Extra
 
@@ -78,7 +118,13 @@ Foi criada a rota `/relogio` para que ele saísse do `#index` da aplicação. Um
 Para os problemas do timer foram implementadas as seguintes soluções:
 
 - Um alert é gerado na tela caso o usuário tente iniciar o timer com o _input_ vazio;
-- O _button_ iniciar fica desabilitado quando recebe o primeiro clique e só volta a ficar habilitado quando o timer zera.
+- O _button_ iniciar fica desabilitado quando recebe o primeiro clique e só volta a ficar habilitado quando o timer zera;
+
+Outras implementações também foram feitas:
+
+- Diferente do botão _pause_, que quando é acionado para, mas pode retornar de onde parou, foi incluído o botão _stop_, que para, mas não pode ser retomado.
+
+O resultado pode ser visualizado abaixo:
 
 ### Desafios e dificuldades
 
@@ -89,11 +135,17 @@ Para os problemas do timer foram implementadas as seguintes soluções:
  <img src="./.gitlab/screenshots/create.aluguel.png" alt="preview exerc" width="40%">
 </p>
 
-- No requisito **Formato de Entrega** foi encontrado o seguinte problema: para criar uma nova _branch_ através das _issues_, o botão _create branch_ não estava disponível e pesquisando encontrei esse [link](https://stackoverflow.com/questions/73074590/gitlab-option-to-create-branch-from-the-issue-is-missing) que aponta ser necessário remover a relação com o _fork_.
+- No requisito **Formato de Entrega** foi encontrado o seguinte problema: para criar uma nova _branch_ através das _issues_, o botão _create branch_ não estava disponível. Pesquisando encontrei esse [link](https://stackoverflow.com/questions/73074590/gitlab-option-to-create-branch-from-the-issue-is-missing) que aponta ser necessário remover a relação com o _fork_. Fiz a remoção indicada e consegui realizar a criação de _branches_ normalmente.
+
+### Pontos de melhoria
+
+Reservei esse espaço para apontar algumas funcionalidades da aplicação que acredito que teriam sido realizadas e/ou concluídas, porém não houve tempo hábil.
+
+- Para o requisito **Gestão de Usuário**, apesar de ter sido implementado novos controllers e configurações partindo da gem _Devise_, ainda ficaram alguns _bugs_ nas rotas para que o usuário root possa editar e deletar os usuários padrão.
 
 ## Instalação
 
-Antes de iniciar a aplicação, recomenda-se a execução da seguinte sequência de comandos:
+Antes de iniciar a aplicação é necessário a execução da seguinte sequência de comandos:
 
 ```bash
 bundle install
@@ -103,10 +155,4 @@ rails db:migrate
 rails db:seed
 ```
 
-Para iniciar o servidor, recomenda-se a utilização do comando `./bin/dev`, pois ele garante os assets serão todos devidamente processados.
-
-### Adiciona uma dependência do tailwind no frontend
-
-```bash
-yarn add @tailwindcss/forms
-```
+Para iniciar o servidor recomenda-se a utilização do comando `./bin/dev`, pois ele garante os assets serão todos devidamente processados.
