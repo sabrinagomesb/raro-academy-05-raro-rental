@@ -5,7 +5,7 @@
 <% end %>
 
 <% content_for :new_button do %>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: btn_danger %>
+  <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: btn_danger %>
 <% end %>
 
 <div class="m-auto flex flex-col justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-2xl p-4">
@@ -65,7 +65,7 @@
       </div>
 
     </div>
-    <div class="actions w-100 flex justify-end mt-8">
+    <div class="actions w-100 flex justify-end my-8 mr-7">
       <div class="actions">
         <%= f.submit "Atualizar cadastro", class: btn_primary %>
       </div>
