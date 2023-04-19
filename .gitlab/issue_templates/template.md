@@ -1,6 +1,14 @@
 <!-- Descrever issue -->
 
-<!-- Objetivos -->
+<!-- ## What?
+
+## Why?
+
+## How?
+
+## Screenshots (optional)
+
+## Anything Else? -->
 
 - [ ] ...
 
