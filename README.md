@@ -21,7 +21,7 @@ Projeto iniciado durante a semana 6 da turma de Ruby on Rails - Raro Academy pel
 
 ## Objetivos
 
-Tendo como base o enunciado do exercício, os objetos são:
+Tendo como base o [enunciado do exercício](./.gitlab/enunciado.md), os objetos são:
 
 - [x] Retornar as mensagem de erro da partial `app/views/clientes/_form.html.erb`;
 - [x] Garantir que todos os CRUDS tenham ações de `index`, `show`, `create`, `update` e `delete`;
