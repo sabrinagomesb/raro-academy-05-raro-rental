@@ -13,6 +13,7 @@
     - [Desafios e dificuldades](#desafios-e-dificuldades)
     - [Pontos de melhoria](#pontos-de-melhoria)
   - [Instalação](#instalação)
+    - [Acessos](#acessos)
 
 # Admin Locadora RaroRental
 
@@ -67,11 +68,11 @@ Foi criado esse [template](./.gitlab/issue_templates/template.md) baseado no [ar
 
 - [Devise](https://github.com/heartcombo/devise) - Autenticação de usuários
 - [Faker](https://github.com/faker-ruby/faker) - Geração de dados falsos
-- [Ransack](https://activerecord-hackery.github.io) - Busca de dados
+- [Ransack](https://activerecord-hackery.github.io) - Campos de busca
 
 #### Design
 
-O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está o resultado do design da tela de login e de cada etapa do CRUD (Create - telas para cadastros / Read - tabela com dados / Update - telas para edições / Delete - botões "delete")
+O design das telas foi realizado utilizando as classes do [Tailwind](https://tailwindcss.com/). Abaixo está o resultado do design da tela de login e de cada etapa do CRUD (Create - telas para cadastros / Read - tabela com dados / Update - telas para edições / Delete - botões "delete")
 
 - TELA DE LOGIN:
 
@@ -102,7 +103,6 @@ O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está
 </p>
 
 - TELAS PARA **VER** DADOS DETALHADOS:
--
 
 <p align="center">
   <img src="./.gitlab/screenshots/aluguel-ver.png" alt="Telas de detalhes" width="33%">
@@ -111,7 +111,7 @@ O design das telas foi realizado utilizando as classes do Tailwind. Abaixo está
 </p>
 
 - ALERT GERADO PARA BOTÃO **DELETE**:
-  
+
 ![Exemplo de alerta](./.gitlab/screenshots/alert-delete.png)
 
 #### Validações
@@ -120,15 +120,17 @@ Foram criadas validações em todas as entidades, exceto para Usuário, que teve
 
 #### Campos de busca
 
-Foram implementados campos de busca em todas as entidades. É possível realizar buscas em todos os dados de cada entidade. Abaixo está o resultado da entidade Cliente.
+Ao acessar a documentação da gem Ransack são disponibilizados dois tipos de demonstração de como criar campos de busca, são eles: _simple_ e _advanced_. A implementação detalhada abaixo foi realizada seguindo a demonstração _simple_. A estilização foi realizada também com Tailwind.
+É possível realizar buscas em todos os dados de cada entidade. Abaixo está o resultado da entidade Cliente, onde há um campo de busca para cada dado: nome, CPF e CNH.
 
 ![Exemplo de alerta](./.gitlab/screenshots/busca-cliente.jpg)
 
 #### Usuário logado | Gestão de Usuários
 
-Para cumprir os requisitos dessa parte do exercício foi pensado para dois tipos de usuários: **usuário root** e **usuário padrão**. Ambos tem o menu de contexto, mas o usuário root tem acessos extras, enquanto o usuário padrão acessa apenas as funcionalidades das entidades: Cliente, Veiculo e Aluguel. Foi garantido o bloqueio a rota de _signup_, para que somente o usuário root possa criar novos usuários.
+Para cumprir os requisitos dessa parte do exercício foram criados dois tipos de usuários: **usuário root** e **usuário padrão**. Ambos tem o menu de contexto, mas o usuário root tem acessos extras, enquanto o usuário padrão acessa apenas as funcionalidades das entidades: Cliente, Veiculo e Aluguel. Foi garantido o bloqueio a rota de _signup_, para que somente o usuário root possa criar novos usuários.
 
 - Usuário Root:
+
   - Visualiza na _navbar_ um botão de acesso a todos usuários cadastrados;
   - Acessa rota que exibe o cadastro de um novo usuário.
 
@@ -138,13 +140,13 @@ Para cumprir os requisitos dessa parte do exercício foi pensado para dois tipos
 ![USER PADRÃO - NAVBAR](./.gitlab/screenshots/navbar-user-padrao.png)
 
 - TABELA USUÁRIOS | CADASTRO NOVO USUÁRIO:
-  
+
 ![Tabela de usuários](./.gitlab/screenshots/lista-users.png)
 ![Criação usuário](./.gitlab/screenshots/usuario-criar.png)
 
 - EDITAR PRÓPRIO USUÁRIO :
 
-![Edição de usuário](./.gitlab/screenshots/usuario-criar.png)
+![Edição de usuário](./.gitlab/screenshots/usuario-editar.png)
 
 #### Relógio - Atividade Extra
 
@@ -154,15 +156,15 @@ Foi criada a rota `/relogio` para que ele saísse do `#index` da aplicação. Um
    - [x] Um alert é gerado na tela caso o usuário tente iniciar o timer com o _input_ vazio;
 2. Impedir que o usuário consiga iniciar o timer mais de uma vez;
 
-   - [x] Ao clicar no botão `iniciar` o mesmo é desabilitado e só volta a ficar habilitado quando o timer zera, além de alterar o cursos para `not-allowed`;
-   - [ ]
+   - [x] Ao clicar no botão `iniciar` o mesmo é desabilitado e só volta a ficar habilitado quando o timer zera, além de alterar o cursor para `not-allowed`;
+
 3. Corrigir a ação de pausar para que o timer não seja reiniciado, mas retorne do ponto de onde parou;
 
-   - [x] Foi criado uma variável `rodando` que armazena o estado do nosso timer, se está rodando ou não. Ao clicar no botão `pausar`, verificamos o estado e caso `rodando` seja `true`, pausamos o timer e alteramos o estado para `false`, armazena também a quantidade de milissegundos restante que capturamos ao converer o estado do mostrado pra milissegundos. Ao clicar novamente no botão `pausar`, verificamos o estado e caso `rodando` seja `false`, iniciamos o timer com a quantidade de milissegundos restante e alteramos o estado para `true`. Necessário também desacoplar o método `rodaContardor`;
+   - [x] Foi criado uma variável `rodando` que armazena o estado do nosso timer, se está rodando ou não. Ao clicar no botão `pausar`, verificamos o estado e caso `rodando` seja `true`, pausamos o timer e alteramos o estado para `false`. Armazena também a quantidade de milissegundos restante que capturamos ao converter o estado do mostrador para milissegundos. Ao clicar novamente no botão `pausar`, verificamos o estado e caso `rodando` seja `false`, iniciamos o timer com a quantidade de milissegundos restante e alteramos o estado para `true`. Foi necessário também desacoplar o método `rodaContador`;
 
-4. Implementar a função do botão `limpar` do timer
+4. Implementar a função do botão `limpar` do timer.
 
-   - [x] O método `zerarContador` é chamad, ele é responsável por executar todos os comandos que fazem nosso contador voltar ao estado inicial de zerado.
+   - [x] O método `zerarContador` é chamado, ele é responsável por executar todos os comandos que fazem nosso contador voltar ao estado inicial de zerado.
 
 Outras implementações também foram feitas:
 
@@ -174,7 +176,7 @@ O resultado pode ser visualizado abaixo:
 
 ### Desafios e dificuldades
 
-- Na implementação dos campos da entidade **Aluguel** houve dificuldades para manipular os dados do tipo _Date_ e _Float_, pois não foi possível definir nos seus respectivos _inputs_ o formato de data `DD/MM/YYYY` e o formato de moeda `BRL`. Para garantir o formato correto no _input_ de `valor_pago` foi tentado implementar uma validação com expressão regular (`validates :valor_pago, format: { with: /\A\d+(\.\d{0,2})?\z/ }`), mas não houve sucesso. Para amenizar esse _gap_ foram criados `helpers` que mostram as datas e os valores nos formatos desejados nas _views_. E no _input_ de `valor_pago` foi criado um placeholder indicando o formato que deve ser preenchido.
+- Na implementação dos campos da entidade **Aluguel** houve dificuldades para manipular os dados do tipo _Date_ e _Float_, pois não foi possível definir nos seus respectivos _inputs_ o formato de data `DD/MM/YYYY` e o formato de moeda `BRL`. Para garantir o formato correto no _input_ de `valor_pago` foi tentado implementar uma validação com expressão regular (`validates :valor_pago, format: { with: /\A\d+(\.\d{0,2})?\z/ }`), mas não houve sucesso. Para amenizar esse _gap_ foram criados `helpers` que mostram as datas e os valores nos formatos desejados nas _views_. E no _input_ de `valor_pago` foi criado um _placeholder_ indicando o formato que deve ser preenchido.
 
 <p align="center">
  <img src="./.gitlab/screenshots/view.aluguels.png" alt="preview exerc" width="45%">
@@ -182,14 +184,12 @@ O resultado pode ser visualizado abaixo:
 </p>
 
 - No requisito **Formato de Entrega** foi encontrado o seguinte problema: para criar uma nova _branch_ através das _issues_, o botão _create branch_ não estava disponível. Pesquisando encontrei esse [link](https://stackoverflow.com/questions/73074590/gitlab-option-to-create-branch-from-the-issue-is-missing) que aponta ser necessário remover a relação com o _fork_. Fiz a remoção indicada e consegui realizar a criação de _branches_ normalmente.
-
-- Com o contexto de usuário, o desafio foi entender o funcionamento do javascript juntamente com o rails. Após algumas pesquisas e testes, descobri que a importação através do `application` funcionava apenas se não mudasse de tela, então importei também na view do relógio, nesse momento só funcionava após mudar de tela, descobri então que ele estava chamando duas vezes: uma por `application` outra no contexto de usuário. A solução foi manter apenas a importação na navbar, partial que armazena o menu de contexto de usuário.
+  <br>
+- No contexto de usuário o desafio foi entender o funcionamento do JavaScript juntamente com o Rails. Após algumas pesquisas e testes, descobri que a importação através do `application` funcionava apenas se não mudasse de tela, então importei também na _view_ do relógio. Nesse momento só funcionava após mudar de tela, descobri então que ele estava chamando duas vezes: uma por `application` e outra no contexto de usuário. A solução foi manter apenas a importação na _navbar_, _partial_ que armazena o menu de contexto de usuário.
 
 ### Pontos de melhoria
 
-Reservei esse espaço para apontar algumas funcionalidades da aplicação que acredito que teriam sido realizadas e/ou concluídas, porém não houve tempo hábil.
-
-- Para o requisito **Gestão de Usuário**, apesar de ter sido implementado novos controllers e configurações partindo da gem _Devise_, ainda ficaram alguns detalhes para implementar nas rotas para que o usuário root possa editar e deletar os demais usuários.
+- Para o requisito **Gestão de Usuário** acredito que seria uma boa ideia adicionar ao **usuário root** a possibilidade de editar e deletar os usuários padrão. No momento, ele consegue apenas visualizá-los e gerar novos cadastros.
 
 ## Instalação
 
@@ -203,4 +203,9 @@ rails db:migrate
 rails db:seed
 ```
 
-Para iniciar o servidor recomenda-se a utilização do comando `./bin/dev`, pois ele garante os assets serão todos devidamente processados.
+Para iniciar o servidor recomenda-se a utilização do comando `./bin/dev`, pois ele garante que os assets serão todos devidamente processados.
+
+### Acessos
+
+- Usuário root: email: root@root.com, password: root@123
+- Usuário padrão: email: paulo@raro.com, password: paulo@123
