@@ -178,10 +178,10 @@ O resultado pode ser visualizado abaixo:
 
 - Na implementação dos campos da entidade **Aluguel** houve dificuldades para manipular os dados do tipo _Date_ e _Float_, pois não foi possível definir nos seus respectivos _inputs_ o formato de data `DD/MM/YYYY` e o formato de moeda `BRL`. Para garantir o formato correto no _input_ de `valor_pago` foi tentado implementar uma validação com expressão regular (`validates :valor_pago, format: { with: /\A\d+(\.\d{0,2})?\z/ }`), mas não houve sucesso. Para amenizar esse _gap_ foram criados `helpers` que mostram as datas e os valores nos formatos desejados nas _views_. E no _input_ de `valor_pago` foi criado um _placeholder_ indicando o formato que deve ser preenchido.
 
-<p align="center">
+<div align="center">
  <img src="./.gitlab/screenshots/view.aluguels.png" alt="preview exerc" width="45%">
  <img src="./.gitlab/screenshots/create.aluguel.png" alt="preview exerc" width="45%">
-</p>
+</div>
 
 - No requisito **Formato de Entrega** foi encontrado o seguinte problema: para criar uma nova _branch_ através das _issues_, o botão _create branch_ não estava disponível. Pesquisando encontrei esse [link](https://stackoverflow.com/questions/73074590/gitlab-option-to-create-branch-from-the-issue-is-missing) que aponta ser necessário remover a relação com o _fork_. Fiz a remoção indicada e consegui realizar a criação de _branches_ normalmente.
   <br>
