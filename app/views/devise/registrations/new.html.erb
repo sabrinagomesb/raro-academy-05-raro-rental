@@ -47,6 +47,17 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: input_text %>
         </div>
       </div>
+
+      <% if current_usuario.root? %>
+        <div class="mt-6 flex items-center justify-between sm:col-span-3">
+          <div class="flex items-center">
+            <% if devise_mapping.rememberable? %>
+              <%= f.check_box :root, class: input_checkbox %>
+              <%= f.label "Usuário root?", class: 'ml-2 block text-sm text-gray-900' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="actions w-100 flex justify-end mt-8">
