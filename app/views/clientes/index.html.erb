@@ -11,25 +11,21 @@
 <div class="w-full">
   <%= search_form_for(@c, url: clientes_path	) do |f| %>
     <div class="grid grid-cols-6 items-end mb-4 gap-4">
-      <div class="flex flex-col col-start-2">
+      <div class="flex flex-col col-start-3">
         <%= f.label :nome, class: input_label_search %>
         <%= f.search_field :nome_cont, class: input_text_searh %>
       </div>
 
-      <div class="flex flex-col col-start-3">
+      <div class="flex flex-col col-start-4">
         <%= f.label :cpf, 'CPF', class: input_label_search %>
         <%= f.search_field :cpf_cont, class: input_text_searh %>
-      </div>
-
-      <div class="flex flex-col col-start-4">
-        <%= f.label :cnh, 'CNH', class: input_label_search %>
-        <%= f.search_field :cnh_cont, class: input_text_searh %>
       </div>
 
       <div class="flex flex-col col-start-5">
         <%= f.label :cnh, 'CNH', class: input_label_search %>
         <%= f.search_field :cnh_cont, class: input_text_searh %>
       </div>
+
       <div class="flex flex-col col-start-6">
         <%= f.submit 'Buscar', class: btn_search %>
       </div>
