@@ -8,55 +8,63 @@
   <%= link_to "Novo cliente", new_cliente_path, class: btn_primary %>
 <% end %>
 
-<div class="w-full flex items-center justify-end p-4 gap-4 ">
+<div class="w-full">
   <%= search_form_for(@c, url: clientes_path	) do |f| %>
-    <div class="form-group">
-      <%= f.label :nome, class: input_label_search %>
-      <%= f.search_field :nome_cont, class: input_text_searh %>
+    <div class="grid grid-cols-6 items-end mb-4 gap-4">
+      <div class="flex flex-col col-start-3">
+        <%= f.label :nome, class: input_label_search %>
+        <%= f.search_field :nome_cont, class: input_text_searh %>
+      </div>
 
-      <%= f.label :cpf, class: input_label_search %>
-      <%= f.search_field :cpf_cont, class: input_text_searh %>
+      <div class="flex flex-col col-start-4">
+        <%= f.label :cpf, 'CPF', class: input_label_search %>
+        <%= f.search_field :cpf_cont, class: input_text_searh %>
+      </div>
 
-      <%= f.label :cnh, class: input_label_search %>
-      <%= f.search_field :cnh_cont, class: input_text_searh %>
+      <div class="flex flex-col col-start-5">
+        <%= f.label :cnh, 'CNH', class: input_label_search %>
+        <%= f.search_field :cnh_cont, class: input_text_searh %>
+      </div>
 
-      <%= f.submit 'Buscar', class: btn_primary %>
+      <div class="flex flex-col col-start-6">
+        <%= f.submit 'Buscar', class: btn_search %>
+      </div>
     </div>
   <% end %>
 </div>
 
 <div id="clientes" class="we-full overflow-hidden rounded-lg shadow-lg">
   <div class="w-full overflow-x-auto">
-      <% if @clientes.empty? %>
-        <div class=" p-4 text-zinc-800 bg-white flex justify-center">
-          <strong>Sem resultados encontrado</strong>
-        </div>
-      <% else %>
+    <% if @clientes.empty? %>
+      <div class="p-4 text-zinc-800 bg-white flex justify-center">
+        <strong>Sem resultados encontrado</strong>
+      </div>
+    <% else %>
       <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100">
-          <th class="p-4 w-1/4 divide-x">Nome</th>
-          <th class="p-4 w-1/4 divide-x">CPF</th>
-          <th class="p-4 w-1/4 divide-x">CNH</th>
-          <th class="p-4 divide-x flex justify-center">Ações</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y">
-        <% @clientes.each do |cliente| %>
-          <tr class="text-gray-700">
-            <td class="px-8 py-3"><%= cliente.nome %></td>
-            <td class="py-3"><%= cliente.cpf %></td>
-            <td class="py-3"><%= cliente.cnh %></td>
-            <td class="py-3">
-              <div class="flex items-center space-x-2">
-                <%= link_to "Ver cliente", cliente, class: btn_simple %>
-                <%= link_to "Editar", edit_cliente_path(cliente.id), class: btn_secondary %>
-                <%= button_to "Deletar", cliente_path(cliente), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse cliente?" }, class: btn_danger %>
-              </div>
-            </td>
+        <thead>
+          <tr class="w-full text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-100">
+            <th class="p-4 w-1/4 divide-x">Nome</th>
+            <th class="p-4 w-1/4 divide-x">CPF</th>
+            <th class="p-4 w-1/4 divide-x">CNH</th>
+            <th class="p-4 divide-x flex justify-center">Ações</th>
           </tr>
-        <% end %>
-      <% end%>
+        </thead>
+        <tbody class="bg-white divide-y">
+          <% @clientes.each do |cliente| %>
+            <tr class="text-gray-700">
+              <td class="px-8 py-3"><%= cliente.nome %></td>
+              <td class="py-3"><%= cliente.cpf %></td>
+              <td class="py-3"><%= cliente.cnh %></td>
+              <td class="py-3">
+                <div class="flex items-center space-x-2">
+                  <%= link_to "Ver cliente", cliente, class: btn_simple %>
+                  <%= link_to "Editar", edit_cliente_path(cliente.id), class: btn_secondary %>
+                  <%= button_to "Deletar", cliente_path(cliente), method: :delete, data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza que deseja deletar esse cliente?" }, class: btn_danger %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% end%>
       </tbody>
     </table>
   </div>

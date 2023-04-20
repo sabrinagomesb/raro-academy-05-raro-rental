@@ -8,39 +8,37 @@
   <%= link_to "Novo veículo", new_veiculo_path, class: btn_primary %>
 <% end %>
 
-<div class="">
+<div class="w-full">
   <%= search_form_for(@v, url: veiculos_path	) do |f| %>
-    <div class="w-full grid grid-cols-4 gap-4">
-      <div>
+    <div class="grid grid-cols-6 items-end mb-4 gap-4">
+      <div class="flex flex-col">
         <%= f.label :marca, class: input_label_search %>
         <%= f.search_field :marca_cont, class: input_text_searh  %>
       </div>
 
-      <div>
+      <div class="flex flex-col">
       <%= f.label :modelo, class: input_label_search %>
       <%= f.search_field :modelo_cont, class: input_text_searh  %>
       </div>
 
-      <div>
+      <div class="flex flex-col">
       <%= f.label :placa, class: input_label_search %>
       <%= f.search_field :placa_cont, class: input_text_searh  %>
       </div>
 
-      <div>
+      <div class="flex flex-col">
       <%= f.label :cor, class: input_label_search %>
       <%= f.search_field :cor_cont, class: input_text_searh  %>
       </div>
 
-      <div>
+      <div class="flex flex-col">
       <%= f.label :chassi, class: input_label_search %>
       <%= f.search_field :chassi_cont, class: input_text_searh  %>
       </div>
 
-      <div>
-      <%= f.submit 'Buscar', class: btn_primary %>
+      <div class="flex flex-col">
+      <%= f.submit 'Buscar', class: btn_search %>
       </div>
-    </div>
-    <div class="w-full flex items-center justify-end px-8 mb-4">
     </div>
   <% end %>
 </div>
