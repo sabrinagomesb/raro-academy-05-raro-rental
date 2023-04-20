@@ -8,16 +8,22 @@
   <%= link_to "Novo aluguel", new_aluguel_path, class: btn_primary %>
 <% end %>
 
-<div class="w-full flex items-center justify-end p-4 gap-4 ">
+<div class="w-full">
   <%= search_form_for(@a, url: aluguels_path	) do |f| %>
-    <div class="form-group">
-      <%= f.label :data_inicio, class: input_label_search %>
-      <%= f.search_field :data_inicio_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+    <div class="grid grid-cols-6 items-end mb-4 gap-4">
+      <div class="flex flex-col col-start-4">
+        <%= f.label :data_inicio, class: input_label_search %>
+        <%= f.search_field :data_inicio_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+      </div>
 
-      <%= f.label :data_fim, class: input_label_search %>
-      <%= f.search_field :data_fim_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+      <div class="flex flex-col col-start-5">
+        <%= f.label :data_fim, class: input_label_search %>
+        <%= f.search_field :data_fim_cont, class: input_text_searh, placeholder: "2023-04-25" %>
+      </div>
 
-      <%= f.submit 'Buscar', class: btn_primary %>
+      <div class="flex flex-col col-start-6">
+        <%= f.submit 'Buscar', class: btn_primary %>
+      </div>
     </div>
   <% end %>
 </div>

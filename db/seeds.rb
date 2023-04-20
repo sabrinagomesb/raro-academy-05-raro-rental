@@ -38,11 +38,11 @@ cores = ["Vermelho", "Preto", "Branco", "Prata", "Azul", "Amarelo", "Verde", "Ci
   marca_aleatoria = carros.keys.sample
   carro_aleatorio = carros[marca_aleatoria].sample
   placa_aleatoria = Faker::Vehicle.license_plate.gsub("-", "").upcase
+
   Veiculo.create! marca: marca_aleatoria, modelo: carro_aleatorio, placa: placa_aleatoria, chassi: Faker::Number.number(digits: 17).to_s, cor: cores.sample
 end
 
 # Aluguel
-
 20.times do
   Aluguel.create! cliente_id: rand(1..20), veiculo_id: rand(1..20), data_inicio: Date.today, data_fim: Date.today + rand(1..10).days, valor_pago: rand(100..1000)
 end
