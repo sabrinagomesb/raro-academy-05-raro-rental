@@ -14,7 +14,7 @@ Usuario.create! email: "paulo@raro.com", password: "paulo@123", nome: "Paulo Fer
 # db/seeds.rb
 
 # Clientes
-20.times do
+30.times do
   Cliente.create! nome: Faker::Name.name, cpf: Faker::Number.number(digits: 11).to_s, cnh: Faker::Number.number(digits: 11).to_s, profile_url: Faker::Avatar.image
 end
 
@@ -34,7 +34,7 @@ carros = {
 
 cores = ["Vermelho", "Preto", "Branco", "Prata", "Azul", "Amarelo", "Verde", "Cinza"]
 
-20.times do
+30.times do
   marca_aleatoria = carros.keys.sample
   carro_aleatorio = carros[marca_aleatoria].sample
   placa_aleatoria = Faker::Vehicle.license_plate.gsub("-", "").upcase
@@ -44,5 +44,8 @@ end
 
 # Aluguel
 20.times do
-  Aluguel.create! cliente_id: rand(1..20), veiculo_id: rand(1..20), data_inicio: Date.today, data_fim: Date.today + rand(1..10).days, valor_pago: rand(100..1000)
+  data_inicio_aleatoria = Date.today + rand(1..10).days
+  data_fim_aleatoria = data_inicio_aleatoria + rand(1..20).days
+  valor_pago_aleatorio = (data_fim_aleatoria - data_inicio_aleatoria).to_i * rand(50..200)
+  Aluguel.create! cliente_id: rand(1..20), veiculo_id: rand(1..20), data_inicio: data_inicio_aleatoria, data_fim: data_fim_aleatoria, valor_pago: valor_pago_aleatorio
 end
